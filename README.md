@@ -1,5 +1,5 @@
-# Satisfactory-AB_ExpandedPower
-The development source for the Satisfactory mod AB_ExpandedPower
+# Satisfactory-AB_CableChoices
+The development source for the Satisfactory mod AB_CableChoices
 
 See the [mod page](https://ficsit.app/mod/?????????????) for details
 
