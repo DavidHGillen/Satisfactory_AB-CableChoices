@@ -7,3 +7,5 @@ _promo/*.afdesign
 *.fbx
 _*Ref.*
 desktop.ini
+/PluginFolder/Saved
+/PluginFolder/Metadata/Crypto.json

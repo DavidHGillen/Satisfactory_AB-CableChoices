@@ -11,11 +11,8 @@ If you want to do development work with this content first checkout the structur
   * Promotional pictures and references for remote linking
 * `/.gitignore/`
   * This will list important files that must exist but can easily be regenerated
-* `/UEContent/`
-  * The mod folder(s) that should be added to your dev build's /content folder
-  * I recommend symlinks to the folders inside here rather than copying
-* `/UESource/`
-  * The mod folder(s) that should be added to your dev build's /source folder
+* `/PluginFolder/`
+  * The mod folder that should be added to your dev build as the /Plugins/<modref> folder
   * I recommend symlinks to the folders inside here rather than copying
 * `/<other>/`
   * Folder for a major piece of content and its related dev files
