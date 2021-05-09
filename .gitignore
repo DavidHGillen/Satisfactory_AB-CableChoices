@@ -1,4 +1,5 @@
 _promo/*.afdesign
+*.autosave*
 *.png
 !_promo/*.png
 *.tga
