@@ -2,6 +2,7 @@ _promo/*.afdesign
 *.autosave*
 *.png
 !_promo/*.png
+!Cables/Icons/Icon_*.png
 *.tga
 *.blend[0-9]*
 *_autosave_[0-9].spp
