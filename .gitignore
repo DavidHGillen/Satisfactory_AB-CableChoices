@@ -10,4 +10,6 @@ _promo/*.afdesign
 _*Ref.*
 desktop.ini
 /PluginFolder/Saved
+/PluginFolder/Binaries
+/PluginFolder/Intermediate
 /PluginFolder/Metadata/Crypto.json
