@@ -1,9 +1,9 @@
 {
 	"FileVersion": 3,
 	"Version": 0,
-	"VersionName": "0.3.2",
-	"SemVersion": "0.3.2",
-	"FriendlyName": "AB_CableMod",
+	"VersionName": "0.3.3",
+	"SemVersion": "0.3.3",
+	"FriendlyName": "Cable Choices +",
 	"Description": "Add some industrial style or something a little more crazy with these alternate power cables/poles. Alt Ficsmas recipe included!",
 	"Category": "Modding",
 	"CreatedBy": "AngryBeaver#9028",
@@ -25,7 +25,7 @@
 	"Plugins": [
 		{
 			"Name": "SML",
-			"SemVersion": "^3.2.0",
+			"SemVersion": "^3.3.2",
 			"bIsOptional": false,
 			"Enabled": true
 		}

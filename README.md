@@ -1,7 +1,7 @@
 # Satisfactory-AB_CableChoices
 The development source for the Satisfactory mod AB_CableChoices
 
-See the [mod page](https://ficsit.app/mod/?????????????) for details
+See the [mod page](https://ficsit.app/mod/DrKrc6ZJSzV96q) for details
 
 # Setup
 If you want to play the mod, install it via SMM.
