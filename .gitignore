@@ -2,10 +2,13 @@ _promo/*.afdesign
 *.autosave*
 *.png
 !_promo/*.png
-!Cables/Icons/Icon_*.png
 *.tga
 *.blend[0-9]*
+*.painter_lock
 *_autosave_[0-9].spp
+**/.autosave/*
+*.assbin
+*.sbsar
 *.fbx
 _*Ref.*
 desktop.ini
@@ -13,3 +16,4 @@ desktop.ini
 /PluginFolder/Binaries
 /PluginFolder/Intermediate
 /PluginFolder/Metadata/Crypto.json
+!Cables/Icons/Icon_*.png

@@ -1,8 +1,8 @@
 {
 	"FileVersion": 3,
 	"Version": 0,
-	"VersionName": "0.3.4",
-	"SemVersion": "0.3.4",
+	"VersionName": "0.3.5",
+	"SemVersion": "0.3.5",
 	"FriendlyName": "Cable Choices +",
 	"Description": "Add some industrial style or something a little more crazy with these alternate power cables/poles. Alt Ficsmas recipe included!",
 	"Category": "Modding",
@@ -25,7 +25,7 @@
 	"Plugins": [
 		{
 			"Name": "SML",
-			"SemVersion": "^3.3.2",
+			"SemVersion": "^3.4.1",
 			"bIsOptional": false,
 			"Enabled": true
 		}
