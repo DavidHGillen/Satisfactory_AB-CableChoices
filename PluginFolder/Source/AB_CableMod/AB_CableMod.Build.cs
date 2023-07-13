@@ -1,29 +1,55 @@
 using UnrealBuildTool;
 using System.IO;
 using System;
+using System.Runtime.InteropServices;
+using System.Text;
+using EpicGames.Core;
 
 public class AB_CableMod : ModuleRules
 {
 	public AB_CableMod(ReadOnlyTargetRules Target) : base(Target) {
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
-		PublicDependencyModuleNames.AddRange(new string[] {
+		PublicDependencyModuleNames.AddRange(new[] {
 			"Core", "CoreUObject",
 			"Engine",
+			"DeveloperSettings",
+			"PhysicsCore",
 			"InputCore",
-			"OnlineSubsystem", "OnlineSubsystemUtils", "OnlineSubsystemNULL",
+			"OnlineSubsystem", "OnlineSubsystemNull", "OnlineSubsystemUtils",
 			"SignificanceManager",
-			"PhysX", "APEX", "PhysXVehicles", "ApexDestruction",
-			"AkAudio",
-			"ReplicationGraph",
-			"UMG",
-			"AIModule",
-			"NavigationSystem",
-			"AssetRegistry",
-			"GameplayTasks",
+			"GeometryCollectionEngine",
+			"ChaosVehiclesCore", "ChaosVehicles", "ChaosSolverEngine",
 			"AnimGraphRuntime",
-			"Slate", "SlateCore",
-			"Json"
+			"AkAudio",
+			"AssetRegistry",
+			"NavigationSystem",
+			"ReplicationGraph",
+			"AIModule",
+			"GameplayTasks",
+			"SlateCore", "Slate", "UMG",
+			"InstancedSplines",
+			"RenderCore",
+			"CinematicCamera",
+			"Foliage",
+			"Niagara",
+			"EnhancedInput",
+			"GameplayCameras",
+			"TemplateSequence",
+			"NetCore",
+			"GameplayTags",
+		});
+
+		// FactoryGame plugins
+		PublicDependencyModuleNames.AddRange(new[] {
+			"AbstractInstance",
+			"InstancedSplinesComponent",
+			"SignificanceISPC"
+		});
+
+		// Header stubs
+		PublicDependencyModuleNames.AddRange(new[] {
+			"DummyHeaders",
 		});
 
 
