@@ -4,7 +4,7 @@
 	"VersionName": "1.0.0",
 	"SemVersion": "1.0.0",
 	"FriendlyName": "Cable Choices +",
-	"Description": "Add some industrial style or something a little more crazy with these alternate power cables/poles. Alt Ficsmas recipe included!",
+	"Description": "Add some industrial style or something a little more crazy with these alternate power cables/poles. Alt Ficsmas light recipe included!",
 	"Category": "Modding",
 	"CreatedBy": "AngryBeaver#9028",
 	"CreatedByURL": "",
@@ -25,7 +25,7 @@
 	"Plugins": [
 		{
 			"Name": "SML",
-			"SemVersion": "^3.4.1",
+			"SemVersion": "^3.5.0",
 			"bIsOptional": false,
 			"Enabled": true
 		}
