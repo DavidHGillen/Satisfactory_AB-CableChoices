@@ -3,10 +3,24 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NiagaraFunctionLibrary.h"
+#include "NiagaraComponent.h"
+
 #include "Buildables/FGBuildableWire.h"
 #include "FGCircuit.h"
 
 #include "ABBuildablePowerline.generated.h"
+
+USTRUCT()
+struct AB_CABLEMOD_API FABPowerlineCustomization {
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, Category = "ABPowerline")
+	UMaterialInterface* material;
+
+	UPROPERTY(EditAnywhere, Category = "ABPowerline")
+	UNiagaraSystem* particleFX;
+};
 
 /**
  * Adds several utility and setup functions for buildable cables
@@ -17,56 +31,27 @@ class AB_CABLEMOD_API AABBuildablePowerline : public AFGBuildableWire
 {
 	GENERATED_BODY()
 
+public:
 	AABBuildablePowerline();
 
+protected:
+	// Custom new properties ////
+	// many powerlines will need this so just manage it as a base property, beware perf tho
+	UPROPERTY(EditAnywhere, Category = "ABPowerline")
+	UNiagaraSystem* mParticleFX;
+
+	// rather than modify the skin system, just let it do nothing and use this to do our thing
+	UPROPERTY(EditAnywhere, Category = "ABPowerline")
+	TMap<TSubclassOf< UFGFactoryCustomizationDescriptor_Skin >, FABPowerlineCustomization> skinToData;
+
+
+
 public:
+	// AActor interface ////
+	virtual void BeginPlay() override;
 
 protected:
-	// Factory interface
-	//////////////////////////////////////////////////////
-
-	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
+	// Factory interface ////
+	//void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData);
-
-	void ApplySkinData(TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > newSkinDesc);
-
-	/*void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
-	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData);
-	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
-	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
-	FFactoryCustomizationData GetCustomizationData_Implementation() { return mCustomizationData; }
-	FFactoryCustomizationData& GetCustomizationData_Native() { return mCustomizationData; }
-	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Implementation() { return mFactorySkinClass; }
-	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Native() { return mFactorySkinClass; }
-	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Native();
-	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Implementation();
-	bool GetCanBeColored_Implementation();
-	bool GetCanBePatterned_Implementation();
-	virtual bool IsColorApplicationDeferred() { return false; }
-	virtual bool CanApplyDeferredColorToBuildable(FVector hitLocation, FVector hitNormal, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController) { return false; }
-	virtual void ApplyDeferredColorToBuildable(FVector hitLocation, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController) {};
-	virtual void StartIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter, bool isValid = true);
-	virtual void StopIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter);
-
-	UFUNCTION(BlueprintImplementableEvent, Category = "Buildable|Build Effect")
-		void OnMaterialInstancesUpdated();
-
-	UFUNCTION(BlueprintNativeEvent, Category = "Buildable|Customization")
-		void OnSkinCustomizationApplied(TSubclassOf< class UFGFactoryCustomizationDescriptor_Skin > skin);
-
-	UFUNCTION(BlueprintCallable, Category = "Buildable|Customization")
-		void ApplyMeshPrimitiveData(const FFactoryCustomizationData& customizationData);
-
-	FORCEINLINE virtual float GetEmissivePower() { return 1.f; }
-
-	UPROPERTY(SaveGame, ReplicatedUsing = OnRep_CustomizationData, meta = (NoAutoJson = true))
-		FFactoryCustomizationData mCustomizationData;
-	
-	/**/
-
-	/*
-		TSubclassOf< UFGFactoryCustomizationDescriptor_Swatch > mDefaultSwatchCustomizationOverride;
-		TSubclassOf< class UFGSwatchGroup > mSwatchGroup;
-		TSubclassOf< class UFGFactorySkinActorData > mFactorySkinClass;
-	/**/
 };
