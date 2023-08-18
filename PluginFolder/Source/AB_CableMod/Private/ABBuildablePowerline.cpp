@@ -12,13 +12,19 @@ AABBuildablePowerline::AABBuildablePowerline() {}
 void AABBuildablePowerline::BeginPlay() {
 	Super::BeginPlay();
 
-	// fix colouration init
-	TArray<UStaticMeshComponent*> powerlineMeshes = GetWireInstanceMeshes();
-	FABPowerlineCustomization* currentSkinData = skinToData.Find(mCustomizationData.SkinDesc);
+	// fix colouration init and add my skin system adaptation
 
+	// pull data
+	TArray<UStaticMeshComponent*> powerlineMeshes = GetWireInstanceMeshes();
+	TSubclassOf<UFGFactoryCustomizationDescriptor_Skin> skinDesc = mCustomizationData.SkinDesc;
+	bool bValidSkin = skinDesc != NULL && skinDesc.GetDefaultObject()->ID != -1;
+
+	// reference mine
+	FABPowerlineCustomization* currentSkinData = skinToData.Find(bValidSkin ? skinDesc : NULL);
 	UMaterialInterface* powerlineMat = currentSkinData != NULL ? currentSkinData->material : NULL;
 	UNiagaraSystem* powerlineFX = currentSkinData != NULL ? currentSkinData->particleFX : NULL;
 
+	// apply
 	for (int32 i = 0, l = powerlineMeshes.Num(); i < l; i++) {
 		UFGBlueprintFunctionLibrary::ApplyCustomizationPrimitiveData(this, mCustomizationData, 0, powerlineMeshes[i]);
 		if (powerlineMat != NULL) { powerlineMeshes[i]->SetMaterial(0, powerlineMat); }
@@ -37,12 +43,19 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 void AABBuildablePowerline::SetCustomizationData_Native(const FFactoryCustomizationData& customizationData) {
 	Super::SetCustomizationData_Native(customizationData);
 
+	// add my skin system adaptation
+
+	// pull data
 	TArray<UStaticMeshComponent*> powerlineMeshes = GetWireInstanceMeshes();
-	FABPowerlineCustomization* currentSkinData = skinToData.Find(customizationData.SkinDesc);
+	TSubclassOf<UFGFactoryCustomizationDescriptor_Skin> skinDesc = customizationData.SkinDesc;
+	bool bValidSkin = skinDesc != NULL && skinDesc.GetDefaultObject()->ID != -1;
 
-	UMaterialInterface* powerlineMat = currentSkinData != nullptr ? currentSkinData->material : nullptr;
-	UNiagaraSystem* powerlineFX = currentSkinData != nullptr ? currentSkinData->particleFX : nullptr;
+	// reference mine
+	FABPowerlineCustomization* currentSkinData = skinToData.Find(bValidSkin ? skinDesc : NULL);
+	UMaterialInterface* powerlineMat = currentSkinData != NULL ? currentSkinData->material : NULL;
+	UNiagaraSystem* powerlineFX = currentSkinData != NULL ? currentSkinData->particleFX : NULL;
 
+	// apply
 	for (int32 i = 0, l = powerlineMeshes.Num(); i < l; i++) {
 		if (powerlineMat != nullptr) { powerlineMeshes[i]->SetMaterial(0, powerlineMat); }
 		//if (powerlineFX != nullptr) {
