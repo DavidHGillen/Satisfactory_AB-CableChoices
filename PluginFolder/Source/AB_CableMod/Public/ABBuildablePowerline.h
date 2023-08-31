@@ -7,6 +7,7 @@
 #include "NiagaraComponent.h"
 
 #include "Buildables/FGBuildableWire.h"
+#include "Buildables/FGBuildableLightSource.h"
 #include "FGCircuit.h"
 
 #include "ABBuildablePowerline.generated.h"
@@ -36,12 +37,16 @@ public:
 
 protected:
 	// Custom new properties ////
+	// some skins and FX will need this to talk to lighting panels
+	UPROPERTY(SaveGame/*, ReplicatedUsing = OnRep_LightControlData */)
+	FLightSourceControlData mLightControlData;
+	
 	// many powerlines will need this so just manage it as a base property, beware perf tho
-	UPROPERTY(EditAnywhere, Category = "ABPowerline")
+	UPROPERTY(SaveGame, EditInstanceOnly, Category = "ABPowerline")
 	UNiagaraSystem* mParticleFX;
 
-	// rather than modify the skin system, just let it do nothing and use this to do our thing
-	UPROPERTY(EditAnywhere, Category = "ABPowerline")
+	// rather than modify the skin system, just let it do nothing and use this to do our thing TODO: ?unique per BP class only possible?
+	UPROPERTY(EditDefaultsOnly, Category = "ABPowerline")
 	TMap<TSubclassOf< UFGFactoryCustomizationDescriptor_Skin >, FABPowerlineCustomization> skinToData;
 
 
