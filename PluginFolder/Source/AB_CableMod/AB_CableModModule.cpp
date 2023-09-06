@@ -10,6 +10,7 @@ void FAB_CableModModule::StartupModule() {
 
 	// Hooking
 	//////////////////////////////////////////////////////
+	/*
 	#if !WITH_EDITOR
 
 	SUBSCRIBE_METHOD(AFGBuildableLightsControlPanel::SetLightControlData, [](auto& scope, AFGBuildableLightsControlPanel* self, FLightSourceControlData data) {
@@ -17,6 +18,7 @@ void FAB_CableModModule::StartupModule() {
 	});
 
 	#endif
+	//*/
 }
 
 IMPLEMENT_GAME_MODULE(FAB_CableModModule, AB_CableMod);
