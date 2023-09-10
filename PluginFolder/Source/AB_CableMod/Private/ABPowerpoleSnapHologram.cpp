@@ -30,6 +30,12 @@ void AABPowerpoleSnapHologram::CheckValidFloor() {
 	Super::CheckValidFloor();
 }
 
+bool AABPowerpoleSnapHologram::TryUpgrade(const FHitResult& hitResult) {
+	if (bExclusiveSnap) { return false; }
+
+	return Super::TryUpgrade(hitResult);
+}
+
 bool AABPowerpoleSnapHologram::IsValidHitResult(const FHitResult& hitResult) const {
 	if (bExclusiveSnap) {
 		return IsMatchingType(hitResult);

@@ -25,6 +25,7 @@ public:
 	bool IsMatchingType(const FHitResult& hitResult) const;
 
 	virtual void CheckValidFloor() override;
+	virtual bool TryUpgrade(const FHitResult& hitResult) override;
 	virtual bool IsValidHitResult(const FHitResult& hitResult) const override;
 	virtual void SetHologramLocationAndRotation(const FHitResult& hitResult) override;
 
