@@ -10,11 +10,11 @@ void FAB_CableModModule::StartupModule() {
 
 	// Hooking
 	//////////////////////////////////////////////////////
-	/*
+	//*
 	#if !WITH_EDITOR
 
 	SUBSCRIBE_METHOD(AFGBuildableLightsControlPanel::SetLightControlData, [](auto& scope, AFGBuildableLightsControlPanel* self, FLightSourceControlData data) {
-		UE_LOG(LogTemp, Warning, TEXT("PANEL PANEL PANEL PANEL PANEL PANEL"));
+		UE_LOG(LogTemp, Warning, TEXT("PANEL [[[ SetLightControlData ]]] PANEL"));
 	});
 
 	#endif
