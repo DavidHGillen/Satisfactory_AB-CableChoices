@@ -12,7 +12,7 @@ bool AABPowerpoleSnapHologram::IsMatchingType(const FHitResult& hitResult) const
 		hitActor = instHandle.GetOwner<AActor>();
 	}
 
-	if (hitActor == NULL) { return false;  }
+	if (hitActor == nullptr) { return false;  }
 
 	for (int i = 0, l = mSnappableTo.Num(); i < l; i++) {
 		UClass* testClass = mSnappableTo[i]->GetDefaultObject()->GetClass();
@@ -25,7 +25,7 @@ bool AABPowerpoleSnapHologram::IsMatchingType(const FHitResult& hitResult) const
 }
 
 void AABPowerpoleSnapHologram::CheckValidFloor() {
-	if (mSnappedBuilding != NULL) { return; }
+	if (mSnappedBuilding != nullptr) { return; }
 
 	Super::CheckValidFloor();
 }
@@ -46,7 +46,7 @@ bool AABPowerpoleSnapHologram::IsValidHitResult(const FHitResult& hitResult) con
 
 void AABPowerpoleSnapHologram::SetHologramLocationAndRotation(const FHitResult& hitResult) {
 	bool bValid = IsMatchingType(hitResult);
-	mSnappedBuilding = NULL;
+	mSnappedBuilding = nullptr;
 
 	if (!bValid) {
 		if (bExclusiveSnap) {
@@ -56,7 +56,7 @@ void AABPowerpoleSnapHologram::SetHologramLocationAndRotation(const FHitResult& 
 		}
 	} else {
 		AFGBuildable* hitBuildable = Cast<AFGBuildable>(hitResult.GetActor());
-		if (hitBuildable != NULL && eSnapType != EABPoleSnapType::PST_None) {
+		if (hitBuildable != nullptr && eSnapType != EABPoleSnapType::PST_None) {
 			UFGClearanceComponent* clearanceSnap;
 			FRotator rOffset;
 			FVector lOffset;
