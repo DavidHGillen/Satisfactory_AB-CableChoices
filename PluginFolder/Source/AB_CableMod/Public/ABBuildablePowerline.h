@@ -57,6 +57,33 @@ public:
 
 protected:
 	// Factory interface ////
-	//void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
+	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
+	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
+
+	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
 	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData);
+
+	FFactoryCustomizationData GetCustomizationData_Implementation() { return mCustomizationData; }
+	FFactoryCustomizationData& GetCustomizationData_Native() { return mCustomizationData; }
+	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Implementation() { return mFactorySkinClass; }
+	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Native() { return mFactorySkinClass; }
+	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Native();
+	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Implementation();
+
+	virtual bool IsColorApplicationDeferred() override;
+	virtual bool CanApplyDeferredColorToBuildable(FVector hitLocation, FVector hitNormal, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController) override;
+	virtual void ApplyDeferredColorToBuildable(FVector hitLocation, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController) override;
+	virtual void StartIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter, bool isValid = true) override;
+	virtual void StopIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter) override;
+
+	bool GetCanBeColored_Implementation();
+	bool GetCanBePatterned_Implementation();
+
+	void OnMaterialInstancesUpdated();
+	void OnSkinCustomizationApplied(TSubclassOf< class UFGFactoryCustomizationDescriptor_Skin > skin);
+
+	void ApplySkinData(TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > newSkinDesc);
+	void ApplyMeshPrimitiveData(const FFactoryCustomizationData& customizationData);
+
+	void OnRep_CustomizationData();
 };
