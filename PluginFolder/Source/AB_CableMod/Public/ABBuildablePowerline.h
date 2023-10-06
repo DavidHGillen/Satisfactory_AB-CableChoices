@@ -57,6 +57,8 @@ public:
 
 protected:
 	// Factory interface ////
+	virtual void OnBuildEffectFinished();
+
 	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
 	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 
