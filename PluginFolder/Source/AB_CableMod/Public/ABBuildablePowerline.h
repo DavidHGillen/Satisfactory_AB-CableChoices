@@ -38,18 +38,20 @@ public:
 protected:
 	// Custom new properties ////
 	// some skins and FX will need this to talk to lighting panels
-	UPROPERTY(SaveGame/*, ReplicatedUsing = OnRep_LightControlData */)
-	FLightSourceControlData mLightControlData;
+	//UPROPERTY(SaveGame/*, ReplicatedUsing = OnRep_LightControlData */)
+	//FLightSourceControlData mLightControlData;
 	
 	// many powerlines will need this so just manage it as a base property, beware perf tho
 	UPROPERTY(SaveGame, EditInstanceOnly, Category = "ABPowerline")
 	UNiagaraSystem* mParticleFX;
 
-	// rather than modify the skin system, just let it do nothing and use this to do our thing TODO: ?unique per BP class only possible?
+	// rather than modify the skin system, just let it do nothing and use this to do our thing
 	UPROPERTY(EditDefaultsOnly, Category = "ABPowerline")
 	TMap<TSubclassOf< UFGFactoryCustomizationDescriptor_Skin >, FABPowerlineCustomization> skinToData;
 
-
+	// trying to include a default in the map was just not working reliably
+	UPROPERTY(EditDefaultsOnly, Category = "ABPowerline")
+	FABPowerlineCustomization defaultData;
 
 public:
 	// AActor interface ////
@@ -57,10 +59,15 @@ public:
 
 protected:
 	// Factory interface ////
-	virtual void OnBuildEffectFinished();
+	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
+
+	/*
+	virtual void OnBuildEffectFinished() override;
+
+	virtual void Native_OnMaterialInstancesUpdated() override;
+	virtual void PostLazySpawnInstances_Implementation() override;
 
 	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
-	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 
 	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
 	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData);
@@ -88,4 +95,5 @@ protected:
 	void ApplyMeshPrimitiveData(const FFactoryCustomizationData& customizationData);
 
 	void OnRep_CustomizationData();
+	//*/
 };

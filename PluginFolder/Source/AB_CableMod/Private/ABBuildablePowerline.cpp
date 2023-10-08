@@ -10,16 +10,20 @@ AABBuildablePowerline::AABBuildablePowerline() {}
 
 // AActor interface ////
 void AABBuildablePowerline::BeginPlay() {
-	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() BeginPlay"));
 	Super::BeginPlay();
 
 	// fix colouration init and add my skin system adaptation
-	ApplyCustomizationData_Native(mCustomizationData);
+	// delay necessary because some construction processes cause other things like build effects to run interference
+	FTimerDelegate Bypass;
+	Bypass.BindLambda([&]() {
+		ApplyCustomizationData_Native(mCustomizationData);
+	});
+	GetWorldTimerManager().SetTimerForNextTick(Bypass);
 }
 
 // Factory interface ////
 void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomizationData & customizationData) {
-	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() ApplyCustomizationData_Native"));
+	//UE_LOG(LogTemp, Warning, TEXT("()( )()( )() ApplyCustomizationData_Native"));
 	Super::ApplyCustomizationData_Native(customizationData);
 
 	// add my skin system adaptation //
@@ -27,30 +31,39 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 	// pull data
 	TArray<UStaticMeshComponent*> powerlineMeshes = GetWireInstanceMeshes();
 	TSubclassOf<UFGFactoryCustomizationDescriptor_Skin> skinDesc = customizationData.SkinDesc;
-	bool bValidSkin = skinDesc != NULL && skinDesc.GetDefaultObject()->ID != -1;
 	int lineCount = powerlineMeshes.Num();
 
 	// reference mine
-	FABPowerlineCustomization* currentSkinData = skinToData.Find(bValidSkin ? skinDesc : nullptr);
-	UMaterialInterface* powerlineMat = currentSkinData != NULL ? currentSkinData->material : nullptr;
-	UNiagaraSystem* powerlineFX = currentSkinData != nullptr ? currentSkinData->particleFX : nullptr;
+	FABPowerlineCustomization* currentSkinData = skinToData.Find(skinDesc);
+	if (currentSkinData == nullptr) { currentSkinData = &defaultData; }
+
+	UMaterialInterface* powerlineMat = currentSkinData->material;
+	UNiagaraSystem* powerlineFX = currentSkinData->particleFX;
 
 	// apply
 	for (int i = 0; i < lineCount; i++) {
-		if (powerlineMat != nullptr) { powerlineMeshes[i]->SetMaterial(0, powerlineMat); }
+		//UE_LOG(LogTemp, Warning, TEXT("()( )()( )() set %d"), i);
+		powerlineMeshes[i]->SetMaterial(0, powerlineMat);
 		//if (powerlineFX != nullptr) {
 	}
 }
 
+/*
 void AABBuildablePowerline::OnBuildEffectFinished() {
 	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() OnBuildEffectFinished"));
-	ApplyCustomizationData_Native(mCustomizationData);
+	Super::OnBuildEffectFinished();
+	//ApplyCustomizationData_Native(mCustomizationData);
 }
 
+void AABBuildablePowerline::PostLazySpawnInstances_Implementation() {
+	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() PostLazySpawnInstances_Implementation"));
+	Super::PostLazySpawnInstances_Implementation();
+}
 
-
-
-
+void AABBuildablePowerline::Native_OnMaterialInstancesUpdated() {
+	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() Native_OnMaterialInstancesUpdated"));
+	Super::Native_OnMaterialInstancesUpdated();
+}
 
 void AABBuildablePowerline::SetCustomizationData_Native(const FFactoryCustomizationData& customizationData) {
 	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() SetCustomizationData_Native"));
@@ -150,4 +163,4 @@ void AABBuildablePowerline::SetCustomizationData_Implementation(const FFactoryCu
 {
 	UE_LOG(LogTemp, Warning, TEXT("()( )()( )() SetCustomizationData_Implementation"));
 	Super::SetCustomizationData_Implementation(customizationData);
-}
+}*/
