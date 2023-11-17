@@ -1,4 +1,5 @@
 #include "ABBuildableRailPower.h"
+#include "Net/UnrealNetwork.h"
 
 AABBuildableRailPower::AABBuildableRailPower() {
 	mSnappedTrack = nullptr;

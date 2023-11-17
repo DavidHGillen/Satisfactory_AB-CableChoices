@@ -25,4 +25,5 @@ public:
 	bool bFlipped;
 	bool bTrySpacing;
 	AFGBuildableRailroadTrack* mSnappedTrack;
+	FTransform lastTransform;
 };
