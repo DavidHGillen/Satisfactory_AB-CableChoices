@@ -9,6 +9,7 @@ _promo/*.afdesign
 **/.autosave/*
 *.assbin
 *.sbsar
+*~lock~
 *.fbx
 _*Ref.*
 desktop.ini
@@ -17,3 +18,4 @@ desktop.ini
 /PluginFolder/Intermediate
 /PluginFolder/Metadata/Crypto.json
 !Cables/Icons/Icon_*.png
+
