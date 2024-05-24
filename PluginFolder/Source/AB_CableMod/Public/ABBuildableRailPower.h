@@ -18,9 +18,9 @@ public:
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 
 	UFUNCTION(BlueprintCallable)
-	class UFGPowerConnectionComponent* GetThirdRail() const;
+	class UFGPowerConnectionComponent* GetThirdRail(AFGBuildableRailroadTrack* targetTrack) const;
 
 public:
-	UPROPERTY(Replicated)
+	UPROPERTY(SaveGame, Replicated, BlueprintReadWrite)
 	AFGBuildableRailroadTrack* mSnappedTrack;
 };

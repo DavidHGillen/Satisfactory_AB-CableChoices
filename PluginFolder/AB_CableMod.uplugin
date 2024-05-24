@@ -1,12 +1,12 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0.0",
-	"SemVersion": "1.0.0",
-	"FriendlyName": "Cable Choices +",
+	"VersionName": "1.0.4",
+	"SemVersion": "1.0.4",
+	"FriendlyName": "Cable Choices Plus",
 	"Description": "Style your power grid! Powerlines with twice the length, add-ons for power towers, railway adapters, more powerpole styles, and a wide variety of looks for cables including lightup effects. Everything interacts with the customization system and it's multiplayer friendly.",
 	"Category": "Modding",
-	"CreatedBy": "AngryBeaver#9028",
+	"CreatedBy": "angrybeaver",
 	"CreatedByURL": "",
 	"DocsURL": "",
 	"MarketplaceURL": "",
@@ -25,7 +25,7 @@
 	"Plugins": [
 		{
 			"Name": "SML",
-			"SemVersion": "^3.6.0",
+			"SemVersion": "^3.7.0",
 			"bIsOptional": false,
 			"Enabled": true
 		}

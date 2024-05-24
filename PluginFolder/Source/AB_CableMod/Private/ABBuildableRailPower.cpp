@@ -10,9 +10,9 @@ void AABBuildableRailPower::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
 	DOREPLIFETIME(AABBuildableRailPower, mSnappedTrack);
 }
 
-UFGPowerConnectionComponent* AABBuildableRailPower::GetThirdRail() const {
-	if (mSnappedTrack != nullptr && GetLocalRole() == ENetRole::ROLE_Authority) {
-		return mSnappedTrack->GetThirdRail();
+UFGPowerConnectionComponent* AABBuildableRailPower::GetThirdRail(AFGBuildableRailroadTrack* targetTrack) const {
+	if (targetTrack != nullptr && GetLocalRole() == ENetRole::ROLE_Authority) {
+		return targetTrack->GetThirdRail();
 	}
 	return nullptr;
 }
