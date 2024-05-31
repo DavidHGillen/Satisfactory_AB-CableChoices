@@ -1,4 +1,5 @@
 #include "ABPowerpoleSnapHologram.h"
+
 #include "AbstractInstanceManager.h"
 #include "FGConstructDisqualifier.h"
 #include "FGClearanceComponent.h"
@@ -28,6 +29,14 @@ void AABPowerpoleSnapHologram::CheckValidFloor() {
 	if (mSnappedBuilding != nullptr) { return; }
 
 	Super::CheckValidFloor();
+}
+
+void AABPowerpoleSnapHologram::ScrollRotate(int32 delta, int32 step) {
+	if (eSnapType == EABPoleSnapType::PST_HatSnapSpin && mSnappedBuilding != nullptr) {
+		bRotate90 = !bRotate90;
+	} else {
+		Super::ScrollRotate(delta, step);
+	}
 }
 
 bool AABPowerpoleSnapHologram::TryUpgrade(const FHitResult& hitResult) {
@@ -63,22 +72,24 @@ void AABPowerpoleSnapHologram::SetHologramLocationAndRotation(const FHitResult& 
 
 			mSnappedBuilding = hitBuildable;
 
-			switch (eSnapType) {
-				case EABPoleSnapType::PST_HatSnap:
-					clearanceSnap = hitBuildable->GetClearanceComponent();
-					lOffset = clearanceSnap->GetRelativeLocation() + FVector(0.0f, 0.0f, clearanceSnap->GetScaledBoxExtent().Z);
-					SetActorLocation(hitBuildable->GetTransform().TransformPosition(lOffset));
-					SetActorRotation(hitBuildable->GetActorRotation());
-					return;
-
-				case EABPoleSnapType::PST_BackSnap:
-					rOffset = FRotator(0.0f, 180.0f, 0.0f);
-					SetActorLocation(hitBuildable->GetActorLocation());
-					SetActorRotation(hitBuildable->GetActorRotation() + rOffset);
-					return;
+			if (eSnapType == EABPoleSnapType::PST_BackSnap) {
+				rOffset = FRotator(0.0f, 180.0f, 0.0f);
+				SetActorLocation(hitBuildable->GetActorLocation());
+				SetActorRotation(hitBuildable->GetActorRotation() + rOffset);
+				return;
+			} else if (eSnapType == EABPoleSnapType::PST_HatSnap || eSnapType == EABPoleSnapType::PST_HatSnapSpin) {
+				clearanceSnap = hitBuildable->GetClearanceComponent();
+				lOffset = clearanceSnap->GetRelativeLocation() + FVector(0.0f, 0.0f, clearanceSnap->GetScaledBoxExtent().Z);
+				SetActorLocation(hitBuildable->GetTransform().TransformPosition(lOffset));
+				SetActorRotation(hitBuildable->GetActorRotation());
+				if (eSnapType == EABPoleSnapType::PST_HatSnapSpin && bRotate90) {
+					AddActorLocalRotation(FRotator(0.0f, 90.0f, 0.0f));
+				}
+				return;
 			}
 		}
 	}
 
-	return Super::SetHologramLocationAndRotation(hitResult);
+	Super::SetHologramLocationAndRotation(hitResult);
+	return;
 }
