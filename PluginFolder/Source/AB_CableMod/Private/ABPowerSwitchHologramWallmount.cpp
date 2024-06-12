@@ -59,15 +59,16 @@ bool AABPowerSwitchHologramWallmount::TrySnapToActor(const FHitResult& hitResult
 		mSnappedBuilding = Cast<AFGBuildable>(hitActor);
 
 		FTransform actorToWorld = hitActor->GetTransform();
-		FTransform worldToActor = actorToWorld.Inverse();
-		FVector localHitPosition = worldToActor.TransformPosition(hitResult.ImpactPoint);
-		FVector localHitNormal = worldToActor.TransformVector(hitResult.ImpactNormal);
+		FVector relativeHitPosition = actorToWorld.Inverse().TransformPosition(hitResult.ImpactPoint) - ruleset.offset;
 
-		FVector outLocation = FVector(0.0f, 0.0f, FMath::GridSnap(FMath::Clamp(localHitPosition.Z, ruleset.minDistance, ruleset.maxDistance), mGridSnapSize));
-		/////////////////////////////////////
-		SetActorLocationAndRotation(actorToWorld.TransformPosition(outLocation), actorToWorld.TransformRotation(FQuat::Identity));
-		AddActorLocalRotation(FRotator(90.0f, 0.0f, GetScrollRotateValue()));
-		/////////////////////////////////////
+		float localAproachRad = FMath::GridSnap(FMath::Atan2(relativeHitPosition.Y, relativeHitPosition.X), FMath::DegreesToRadians(15.0f));
+		FVector outLocation = FVector(0.0f, 0.0f, FMath::GridSnap(FMath::Clamp(relativeHitPosition.Z, ruleset.minDistance, ruleset.maxDistance), mGridSnapSize));
+		FRotator outRotation = FRotator(-90.0f, 0.0f, FMath::RadiansToDegrees(localAproachRad));
+		SetActorLocationAndRotation(
+			actorToWorld.TransformPosition(outLocation + ruleset.offset),
+			actorToWorld.TransformRotation(outRotation.Quaternion())
+		);
+		AddActorLocalRotation(FRotator(0.0f, GetScrollRotateValue() % 2 ? 180.0f : 0.0f, 0.0f));
 		AddActorLocalOffset(FVector(0.0f, 0.0f, ruleset.radius));
 		return true;
 	}
@@ -95,7 +96,10 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 		outRotation = FRotator(0.0f, 0.0f, facing);
 
 		// place us where we should be in the world, and now we know we're where we should be facing the way we should be, move outside the beam
-		SetActorLocationAndRotation(actorToWorld.TransformPosition(outLocation), actorToWorld.TransformRotation(outRotation.Quaternion()));
+		SetActorLocationAndRotation(
+			actorToWorld.TransformPosition(outLocation),
+			actorToWorld.TransformRotation(outRotation.Quaternion())
+		);
 		AddActorLocalOffset(FVector(0.0f, 0.0f, hitBeam->GetSize() * 0.5f));
 		AddActorLocalRotation(FRotator(0.0f, GetScrollRotateValue() % 2 != 0 ? 0.0f : 180.0f, 0.0f));
 		return;
@@ -106,11 +110,13 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	if (hitPillar != NULL) {
 		// pillars are guarenteed to be some rect with even dimensions
 		outLocation = localHitPosition.GridSnap(mGridSnapSize);
-		/////////////////////////////////////
-		outRotation = FRotator(FQuat(localHitNormal, 0.0f)).GridSnap(FRotator(90.0f, 90.0f, 90.0f));
-		/////////////////////////////////////
-		SetActorLocationAndRotation(actorToWorld.TransformPosition(outLocation), actorToWorld.TransformRotation(outRotation.Quaternion()));
-		AddActorLocalRotation(FRotator(90.0f, wallRot, 0.0f));
+		outRotation = localHitNormal.GridSnap(1.0f).Rotation();
+		SetActorLocationAndRotation(
+			actorToWorld.TransformPosition(outLocation),
+			actorToWorld.TransformRotation(outRotation.Quaternion())
+		);
+		AddActorLocalRotation(FRotator(-90.0f, 0.0f, 0.0f));
+		AddActorLocalRotation(FRotator(0.0f, wallRot, 0.0f));
 		return;
 	}
 
@@ -118,7 +124,10 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	AFGBuildableWall* hitWall = Cast<AFGBuildableWall>(hitActor);
 	if (hitWall != NULL) {
 		SnapToWall(hitWall, hitResult.ImpactNormal, hitResult.ImpactPoint, EAxis::Z, FVector::Zero(), wallRot, outLocation, outRotation);
-		SetActorLocationAndRotation(outLocation, outRotation);
+		SetActorLocationAndRotation(
+			outLocation,
+			outRotation
+		);
 		AddActorLocalOffset(FVector(0.0f, 0.0f, wallOffset));
 		return;
 	}
@@ -126,50 +135,53 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	// foundations enable side snapping and handle underside snapping, also follow slopes
 	AFGBuildableFoundation* hitFoundation = Cast<AFGBuildableFoundation>(hitActor);
 	if (hitFoundation != NULL) {
-		bool bOnTheUnderside = localHitNormal.Z < 0.0f;
+		FVector absLocalNormal = localHitNormal.GetAbs();
+		bool nonCardinal = absLocalNormal.X < 0.998f && absLocalNormal.Y < 0.998f && absLocalNormal.Z < 0.998f;
+		bool onTheUnderside = localHitNormal.Z < 0.0f;
 
-		// foundation side helper
-		if (FMath::Abs(localHitNormal.Z) <= 0.48f) {
+		UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ lhn %f, %f, %f"), localHitNormal.X, localHitNormal.Y, localHitNormal.Z);
+		UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ ahn %f, %f, %f"), absLocalNormal.X, absLocalNormal.Y, absLocalNormal.Z);
+		
+		if (nonCardinal) { UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ NON POPE ")); }
+		else {             UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ POPE ")); }
+
+		if (onTheUnderside) { UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ Swing Low ")); }
+		else {                UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ Sweet Charriot ")); }
+
+		AFGBuildableRamp* hitRamp = Cast<AFGBuildableRamp>(hitActor);
+		if (hitRamp != NULL && nonCardinal) {
+			// ramp's ramped surface enjoy special behaviours not of the utility
+			float slopeHigh = hitRamp->mElevation * 0.5f;
+			float slopeLow = hitRamp->mElevation * -0.5f;
+
+			if (hitRamp->mIsDoubleRamp && onTheUnderside) {
+				// double ramps are basically single ramps with an offset underneath ramp
+				slopeLow -= hitRamp->mHeight;
+				slopeHigh -= hitRamp->mHeight;
+			} else if (hitRamp->mIsRoof) {
+				// roofs are thick and about the same as walls so lets reuse that offset
+				slopeLow += onTheUnderside ? -wallOffset : wallOffset;
+				slopeHigh += onTheUnderside ? -wallOffset : wallOffset;
+			}
+
+			outLocation = localHitPosition.GridSnap(mGridSnapSize);
+			outRotation = FRotator(-hitRamp->CalculateRampAngle(), 0.0f, onTheUnderside ? 180.0f : 0.0f);
+			outLocation.Z = FMath::Lerp(slopeHigh, slopeLow, outLocation.X / hitRamp->mDepth + 0.5f);
+
+			SetActorLocationAndRotation(
+				actorToWorld.TransformPosition(outLocation),
+				actorToWorld.TransformRotation(outRotation.Quaternion())
+			);
+		} else {
+			// the default utility is fine here
 			outLocation = hitResult.ImpactPoint;
 			SnapToFoundationSide(hitFoundation, localHitNormal, EAxis::Z, outLocation, outRotation);
-			SetActorLocationAndRotation(outLocation, outRotation);
-			AddActorLocalRotation(FRotator(0.0f, wallRot, 0.0f));
-			return;
+			SetActorLocationAndRotation(
+				outLocation,
+				outRotation
+			);
 		}
 
-		// foundation top/bottom
-		outLocation = localHitPosition.GridSnap(mGridSnapSize);
-		float halfHeight = hitFoundation->mHeight * 0.5f;
-		float groundOffset = 0.0f;
-		float heightBound = 1.0f;
-
-		if (bOnTheUnderside) {
-			// if it's the bottom lets be upside down
-			outRotation += FRotator(0.0f, 0.0f, 180.0f);
-			heightBound = 0.0f;
-		}
-
-		if (FMath::Abs(localHitPosition.Z) < (halfHeight - 5.0f)) {
-			// we're not on a flat top/bottom
-			AFGBuildableRamp* hitRamp = Cast<AFGBuildableRamp>(hitActor);
-			if (hitRamp != NULL) {
-				// we're on a slope so let's handle that
-				outRotation += FRotator(-hitRamp->CalculateRampAngle(), 0.0f, 0.0f);
-
-				// so what does that mean for the z given slope
-				heightBound = 1.0f - (outLocation.X / hitFoundation->mDepth + 0.5f); // 0 -> 1 height
-				if (hitRamp->mIsDoubleRamp) {
-					heightBound = heightBound * 0.5f + (bOnTheUnderside ? 0.0f : 0.5f);
-				}
-				if (hitRamp->mIsRoof) { groundOffset = wallOffset * (bOnTheUnderside ? -1.0f : 1.0f); }
-			} else {
-				// we're somewhere in the middle of something
-				heightBound = FMath::GridSnap(localHitPosition.Z / hitFoundation->mHeight + 0.5f, mGridSnapSize / hitFoundation->mHeight);
-			}
-		}
-
-		outLocation.Z = FMath::Lerp(-halfHeight, halfHeight, heightBound) + groundOffset;
-		SetActorLocationAndRotation(actorToWorld.TransformPosition(outLocation), actorToWorld.TransformRotation(outRotation.Quaternion()));
 		AddActorLocalRotation(FRotator(0.0f, wallRot, 0.0f));
 		return;
 	}

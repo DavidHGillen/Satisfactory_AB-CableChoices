@@ -25,6 +25,9 @@ struct FPoleSnapData {
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite);
 	float maxDistance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite);
+	FVector offset;
 };
 
 // Actual hologram class //
@@ -36,6 +39,8 @@ struct FPoleSnapData {
 UCLASS()
 class AB_CABLEMOD_API AABPowerSwitchHologramWallmount : public AFGPowerSwitchHologram {
 	GENERATED_BODY()
+
+	AABPowerSwitchHologramWallmount();
 
 public:
 	// enable spinning against the attached surface
