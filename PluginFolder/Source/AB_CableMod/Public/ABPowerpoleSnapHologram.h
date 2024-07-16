@@ -10,7 +10,8 @@ enum class EABPoleSnapType : uint8
 	PST_None,
 	PST_HatSnap, // top of the clearance box
 	PST_HatSnapSpin, // top of the clearance box, but can rotate
-	PST_BackSnap // spun 180 to be back to back
+	PST_BackSnap, // spun 180 to be back to back
+	PST_BuildCorner // only snap to the corners of buildables
 };
 
 /**

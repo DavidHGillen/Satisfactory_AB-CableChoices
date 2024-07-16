@@ -15,6 +15,12 @@ AABPowerSwitchHologramWallmount::AABPowerSwitchHologramWallmount() {
 	mSnappedBuilding = NULL;
 }
 
+float AABPowerSwitchHologramWallmount::GetRotationMajorFinal() {
+	float div = 360.0f / majorRotation;
+	int count = GetScrollRotateValue() / GetRotationStep();
+	return div * count;
+}
+
 bool AABPowerSwitchHologramWallmount::IsValidHitResult(const FHitResult& hitResult) const {
 	AActor* hitActor = hitResult.GetActor();
 	if (hitActor == NULL) { return false; }
@@ -68,7 +74,7 @@ bool AABPowerSwitchHologramWallmount::TrySnapToActor(const FHitResult& hitResult
 			actorToWorld.TransformPosition(outLocation + ruleset.offset),
 			actorToWorld.TransformRotation(outRotation.Quaternion())
 		);
-		AddActorLocalRotation(FRotator(0.0f, GetScrollRotateValue() % 2 ? 180.0f : 0.0f, 0.0f));
+		AddActorLocalRotation(FRotator(0.0f, GetRotationMajorFinal(), 0.0f));
 		AddActorLocalOffset(FVector(0.0f, 0.0f, ruleset.radius));
 		return true;
 	}
@@ -101,7 +107,7 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 			actorToWorld.TransformRotation(outRotation.Quaternion())
 		);
 		AddActorLocalOffset(FVector(0.0f, 0.0f, hitBeam->GetSize() * 0.5f));
-		AddActorLocalRotation(FRotator(0.0f, GetScrollRotateValue() % 2 != 0 ? 0.0f : 180.0f, 0.0f));
+		AddActorLocalRotation(FRotator(0.0f, GetRotationMajorFinal(), 0.0f));
 		return;
 	}
 
@@ -138,15 +144,6 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 		FVector absLocalNormal = localHitNormal.GetAbs();
 		bool nonCardinal = absLocalNormal.X < 0.998f && absLocalNormal.Y < 0.998f && absLocalNormal.Z < 0.998f;
 		bool onTheUnderside = localHitNormal.Z < 0.0f;
-
-		UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ lhn %f, %f, %f"), localHitNormal.X, localHitNormal.Y, localHitNormal.Z);
-		UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ ahn %f, %f, %f"), absLocalNormal.X, absLocalNormal.Y, absLocalNormal.Z);
-		
-		if (nonCardinal) { UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ NON POPE ")); }
-		else {             UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ POPE ")); }
-
-		if (onTheUnderside) { UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ Swing Low ")); }
-		else {                UE_LOG(LogTemp, Warning, TEXT("~~~ ~~~ Sweet Charriot ")); }
 
 		AFGBuildableRamp* hitRamp = Cast<AFGBuildableRamp>(hitActor);
 		if (hitRamp != NULL && nonCardinal) {

@@ -47,12 +47,19 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Hologram|Wallmount")
 	bool allowSpinOnWall = true;
 
+	// how far to position from a wall specifically
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Hologram|Wallmount")
 	float wallOffset = 25.0f;
+
+	// if limiting rotation to major rotations steps, how precise
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Hologram|Wallmount")
+	uint8 majorRotation = 2;
 
 	// first come first served ordered array of rules for pole snapping
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Hologram|Wallmount")
 	TArray<FPoleSnapData> poleSnapRules;
+
+	virtual float GetRotationMajorFinal();
 
 // Factory Game
 	virtual int32 GetRotationStep() const { return 15; };
