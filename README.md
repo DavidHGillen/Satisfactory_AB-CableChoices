@@ -1,27 +1,26 @@
 # Satisfactory-AB_CableChoices
 The development source for the Satisfactory mod AB_CableChoices
 
-See the [mod page](https://ficsit.app/mod/DrKrc6ZJSzV96q) for details
+See the [mod page](https://ficsit.app/mod/AB_CableMod) for details
 
 # Setup
 If you want to play the mod, install it via SMM.
 
-If you want to do development work with this content first checkout the structure:
+If you want to do development work with this content first understand the structure:
 * `/_promo/`
   * Promotional pictures and references for remote linking
 * `/.gitignore/`
   * This will list important files that must exist but can easily be regenerated
 * `/PluginFolder/`
-  * The mod folder that should be added to your dev build as the /Plugins/<modref> folder
-  * I recommend symlinks to the folders inside here rather than copying
+  * The content folder that should be added to your dev build as the /mods/modref folder
+  * I recommend a [symlink](https://www.howtogeek.com/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/) to this folder rather than any other approach
 * `/<other>/`
-  * Folder for a major piece of content and its related dev files
+  * Folder for major pieces of content's sources and any related resource files
 
 I use the following software:
 
 * GIT-LFS
 * Blender
-  * Y.A.V.N.E.
 * Affinity Designer
 * Substance Painter
 
