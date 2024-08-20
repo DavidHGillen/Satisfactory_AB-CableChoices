@@ -37,6 +37,9 @@ public:
 	bool bExclusiveSnap = false;
 
 	UPROPERTY(EditDefaultsOnly, Category = "SnapLogic")
+	bool bSpinOnReplace = false;
+
+	UPROPERTY(EditDefaultsOnly, Category = "SnapLogic")
 	EABPoleSnapType eSnapType;
 
 	UPROPERTY(EditDefaultsOnly, Category = "SnapLogic")

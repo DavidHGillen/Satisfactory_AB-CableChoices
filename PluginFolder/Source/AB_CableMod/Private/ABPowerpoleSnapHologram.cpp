@@ -42,7 +42,13 @@ void AABPowerpoleSnapHologram::ScrollRotate(int32 delta, int32 step) {
 bool AABPowerpoleSnapHologram::TryUpgrade(const FHitResult& hitResult) {
 	if (bExclusiveSnap) { return false; }
 
-	return Super::TryUpgrade(hitResult);
+	bool didUpgrade = Super::TryUpgrade(hitResult);
+
+	if (didUpgrade && bSpinOnReplace){
+		AddActorLocalRotation(FRotator(0.0f, GetScrollRotateValue(), 0.0f));
+	}
+
+	return didUpgrade;
 }
 
 bool AABPowerpoleSnapHologram::IsValidHitResult(const FHitResult& hitResult) const {
