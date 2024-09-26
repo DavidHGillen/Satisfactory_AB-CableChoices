@@ -2,7 +2,6 @@
 
 #include "AbstractInstanceManager.h"
 #include "FGConstructDisqualifier.h"
-#include "FGClearanceComponent.h"
 
 bool AABPowerpoleSnapHologram::IsMatchingType(const FHitResult& hitResult) const {
 	AActor* hitActor = hitResult.GetActor();
@@ -72,21 +71,20 @@ void AABPowerpoleSnapHologram::SetHologramLocationAndRotation(const FHitResult& 
 	} else {
 		AFGBuildable* hitBuildable = Cast<AFGBuildable>(hitResult.GetActor());
 		if (hitBuildable != nullptr && eSnapType != EABPoleSnapType::PST_None) {
-			UFGClearanceComponent* clearanceSnap;
-			FRotator rOffset;
-			FVector lOffset;
+			FRotator rotOffset;
+			FVector locOffset;
 
 			mSnappedBuilding = hitBuildable;
 
 			if (eSnapType == EABPoleSnapType::PST_BackSnap) {
-				rOffset = FRotator(0.0f, 180.0f, 0.0f);
+				rotOffset = FRotator(0.0f, 180.0f, 0.0f);
 				SetActorLocation(hitBuildable->GetActorLocation());
-				SetActorRotation(hitBuildable->GetActorRotation() + rOffset);
+				SetActorRotation(hitBuildable->GetActorRotation() + rotOffset);
 				return;
 			} else if (eSnapType == EABPoleSnapType::PST_HatSnap || eSnapType == EABPoleSnapType::PST_HatSnapSpin) {
-				clearanceSnap = hitBuildable->GetClearanceComponent();
-				lOffset = clearanceSnap->GetRelativeLocation() + FVector(0.0f, 0.0f, clearanceSnap->GetScaledBoxExtent().Z);
-				SetActorLocation(hitBuildable->GetTransform().TransformPosition(lOffset));
+				FBox clearanceSnap = mSnappedBuilding->GetCombinedClearanceBox();
+				locOffset = FVector(0.0f, 0.0f, clearanceSnap.Max.Z);
+				SetActorLocation(hitBuildable->GetTransform().TransformPosition(locOffset));
 				SetActorRotation(hitBuildable->GetActorRotation());
 				if (eSnapType == EABPoleSnapType::PST_HatSnapSpin && bRotate90) {
 					AddActorLocalRotation(FRotator(0.0f, 90.0f, 0.0f));
