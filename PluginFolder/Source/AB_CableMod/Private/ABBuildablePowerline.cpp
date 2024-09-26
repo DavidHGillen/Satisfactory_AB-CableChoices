@@ -44,6 +44,7 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 	for (int i = 0; i < lineCount; i++) {
 		//UE_LOG(LogTemp, Warning, TEXT("()( )()( )() set %d"), i);
 		powerlineMeshes[i]->SetMaterial(0, powerlineMat);
+		powerlineMeshes[i]->SetCollisionProfileName("BuildingMesh", false); //can't target for customization w/o. luckily this is forced to run on beign play
 		//if (powerlineFX != nullptr) {
 	}
 }

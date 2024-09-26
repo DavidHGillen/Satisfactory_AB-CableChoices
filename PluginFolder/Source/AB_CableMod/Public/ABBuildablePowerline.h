@@ -36,7 +36,7 @@ public:
 	AABBuildablePowerline();
 
 protected:
-	// Custom new properties ////
+	// Custom new properties
 	// some skins and FX will need this to talk to lighting panels
 	//UPROPERTY(SaveGame/*, ReplicatedUsing = OnRep_LightControlData */)
 	//FLightSourceControlData mLightControlData;
@@ -54,11 +54,11 @@ protected:
 	FABPowerlineCustomization defaultData;
 
 public:
-	// AActor interface ////
+	// AActor interface
 	virtual void BeginPlay() override;
 
 protected:
-	// Factory interface ////
+	// Factory interface
 	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 
 	/*
