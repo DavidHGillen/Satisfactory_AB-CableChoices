@@ -1,13 +1,13 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0.5",
-	"SemVersion": "1.0.5",
+	"VersionName": "1.0.6",
+	"SemVersion": "1.0.6",
 	"FriendlyName": "Cable Choices Plus",
 	"Description": "Style your power grid! Powerlines with twice the length, add-ons for power towers, railway adapters, more powerpole styles, and a wide variety of looks for cables including lightup effects. Everything interacts with the customization system and it's multiplayer friendly.",
 	"Category": "Modding",
-	"CreatedBy": "angrybeaver",
-	"CreatedByURL": "",
+	"CreatedBy": "AngryBeaver",
+	"CreatedByURL": "https://github.com/DavidHGillen/Satisfactory_AB-CableChoices",
 	"DocsURL": "",
 	"MarketplaceURL": "",
 	"SupportURL": "",
@@ -15,6 +15,7 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
+	"GameVersion": ">=365306",
 	"Modules" : [
 		{
 			"Name" : "AB_CableMod",
@@ -25,9 +26,8 @@
 	"Plugins": [
 		{
 			"Name": "SML",
-			"SemVersion": "^3.7.0",
-			"bIsOptional": false,
-			"Enabled": true
+			"Enabled": true,
+			"SemVersion": "^3.8.0"
 		}
 	]
 }

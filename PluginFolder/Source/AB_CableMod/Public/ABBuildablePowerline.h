@@ -55,38 +55,35 @@ protected:
 
 public:
 	// AActor interface
+	virtual void OnConstruction(const FTransform& transform) override;
 	virtual void BeginPlay() override;
 
 protected:
-	// Factory interface
-	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 
-	/*
-	virtual void OnBuildEffectFinished() override;
-
-	virtual void Native_OnMaterialInstancesUpdated() override;
-	virtual void PostLazySpawnInstances_Implementation() override;
-
-	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
-
+	//~ Begin IFGColorInterface
 	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
-	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData);
-
-	FFactoryCustomizationData GetCustomizationData_Implementation() { return mCustomizationData; }
-	FFactoryCustomizationData& GetCustomizationData_Native() { return mCustomizationData; }
-	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Implementation() { return mFactorySkinClass; }
-	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Native() { return mFactorySkinClass; }
+	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine = false);
+	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
+	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
+	FFactoryCustomizationData GetCustomizationData_Implementation();
+	FFactoryCustomizationData& GetCustomizationData_Native();
+	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Implementation();
+	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Native();
 	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Native();
 	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Implementation();
-
-	virtual bool IsColorApplicationDeferred() override;
-	virtual bool CanApplyDeferredColorToBuildable(FVector hitLocation, FVector hitNormal, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController) override;
-	virtual void ApplyDeferredColorToBuildable(FVector hitLocation, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController) override;
-	virtual void StartIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter, bool isValid = true) override;
-	virtual void StopIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter) override;
-
-	bool GetCanBeColored_Implementation();
-	bool GetCanBePatterned_Implementation();
+	//bool GetCanBeColored_Implementation();
+	//bool GetCanBePatterned_Implementation();
+	virtual bool IsColorApplicationDeferred();
+	virtual bool CanApplyDeferredColorToBuildable(FVector hitLocation, FVector hitNormal, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController);
+	virtual void ApplyDeferredColorToBuildable(FVector hitLocation, TSubclassOf< class UFGFactoryCustomizationDescriptor_Swatch > swatch, APlayerController* playerController);
+	virtual void StartIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter, bool isValid = true);
+	virtual void StopIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter);
+	//~ End IFGColorInterface
+	
+	/* Build/Dismantle Effects */
+	virtual void PlayBuildEffects(AActor* inInstigator);
+	virtual void ExecutePlayBuildEffects();
+	virtual void OnBuildEffectFinished();
 
 	void OnMaterialInstancesUpdated();
 	void OnSkinCustomizationApplied(TSubclassOf< class UFGFactoryCustomizationDescriptor_Skin > skin);
@@ -95,5 +92,6 @@ protected:
 	void ApplyMeshPrimitiveData(const FFactoryCustomizationData& customizationData);
 
 	void OnRep_CustomizationData();
-	//*/
+
+	virtual void Native_OnMaterialInstancesUpdated();
 };
