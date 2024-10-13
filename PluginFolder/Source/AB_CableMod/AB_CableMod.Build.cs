@@ -34,7 +34,7 @@ public class AB_CableMod : ModuleRules
 			"RenderCore",
 			"CinematicCamera",
 			"Foliage",
-			//"Niagara",
+			"Niagara",
 			//"EnhancedInput",
 			//"GameplayCameras",
 			//"TemplateSequence",
@@ -45,7 +45,7 @@ public class AB_CableMod : ModuleRules
 
 		// FactoryGame plugins
 		PublicDependencyModuleNames.AddRange(new string[] {
-			//"AbstractInstance",
+			"AbstractInstance",
 			//"InstancedSplinesComponent",
 			//"SignificanceISPC"
 		});
