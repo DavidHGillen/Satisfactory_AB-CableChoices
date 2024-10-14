@@ -60,6 +60,7 @@ public:
 	TArray<FPoleSnapData> poleSnapRules;
 
 	virtual float GetRotationMajorFinal();
+	virtual void BeginPlay() { Super::BeginPlay();  this->mScrollRotation = 0.0f; }; //attempt to fix intermittent random 5d rot
 
 // Factory Game
 	virtual int32 GetRotationStep() const { return 15; };
