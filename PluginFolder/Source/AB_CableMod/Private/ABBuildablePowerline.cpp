@@ -8,12 +8,6 @@
 // Ctor ////
 AABBuildablePowerline::AABBuildablePowerline() {}
 
-void AABBuildablePowerline::OnConstruction(const FTransform& transform) {
-	////UE_LOG(LogTemp, Warning, TEXT("(((( OnConstruction"));
-	Super::OnConstruction(transform);
-	////UE_LOG(LogTemp, Warning, TEXT(")))) OnConstruction"));
-}
-
 // AActor interface ////
 void AABBuildablePowerline::BeginPlay() {
 	////UE_LOG(LogTemp, Warning, TEXT("(((( Begin Play"));
@@ -59,6 +53,19 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 		//if (powerlineFX != nullptr) {
 	}
 	////UE_LOG(LogTemp, Warning, TEXT(")))) ApplyCustomizationData_Native"));
+}
+
+/* ^^^
+Debugging
+void AABBuildablePowerline::OnConstruction(const FTransform& transform) {
+	////UE_LOG(LogTemp, Warning, TEXT("(((( OnConstruction"));
+	Super::OnConstruction(transform);
+	////UE_LOG(LogTemp, Warning, TEXT(")))) OnConstruction"));
+}
+
+bool AABBuildablePowerline::Connect(UFGCircuitConnectionComponent* first, UFGCircuitConnectionComponent* second) {
+	////UE_LOG(LogTemp, Warning, TEXT("(--) Connect"));
+	return Super::Connect(first, second);
 }
 
 FFactoryCustomizationData AABBuildablePowerline::GetCustomizationData_Implementation() {
@@ -190,4 +197,28 @@ void AABBuildablePowerline::SetCustomizationData_Implementation(const FFactoryCu
 	Super::SetCustomizationData_Implementation(customizationData);
 	////UE_LOG(LogTemp, Warning, TEXT(")))) SetCustomizationData_Implementation"));
 }
-//*/
+
+void AABBuildablePowerline::OnRep_Connections() {
+	////UE_LOG(LogTemp, Warning, TEXT("(((( OnRep_Connections"));
+	Super::OnRep_Connections();
+	////UE_LOG(LogTemp, Warning, TEXT(")))) OnRep_Connections"));
+}
+
+UStaticMeshComponent* AABBuildablePowerline::CreateNewWireMesh() {
+	////UE_LOG(LogTemp, Warning, TEXT("(--) CreateNewWireMesh"));
+	return Super::CreateNewWireMesh();
+}
+
+void AABBuildablePowerline::DestroyWireInstances() {
+	////UE_LOG(LogTemp, Warning, TEXT("(((( DestroyWireInstances"));
+	Super::DestroyWireInstances();
+	////UE_LOG(LogTemp, Warning, TEXT(")))) DestroyWireInstances"));
+}
+
+void AABBuildablePowerline::UpdateWireMeshes() {
+	////UE_LOG(LogTemp, Warning, TEXT("(((( UpdateWireMeshes"));
+	Super::UpdateWireMeshes();
+	////UE_LOG(LogTemp, Warning, TEXT(")))) UpdateWireMeshes"));
+}
+
+// ^^^ */

@@ -55,16 +55,20 @@ protected:
 
 public:
 	// AActor interface
-	virtual void OnConstruction(const FTransform& transform) override;
+	////virtual void OnConstruction(const FTransform& transform) override;
+	////virtual bool Connect(class UFGCircuitConnectionComponent* first, class UFGCircuitConnectionComponent* second);
+
 	virtual void BeginPlay() override;
 
 protected:
 
 	//~ Begin IFGColorInterface
+	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
+
+	/* ^^^
 	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
 	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine = false);
 	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
-	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 	FFactoryCustomizationData GetCustomizationData_Implementation();
 	FFactoryCustomizationData& GetCustomizationData_Native();
 	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Implementation();
@@ -80,7 +84,7 @@ protected:
 	virtual void StopIsAimedAtForColor_Implementation(class AFGCharacterPlayer* byCharacter);
 	//~ End IFGColorInterface
 	
-	/* Build/Dismantle Effects */
+	// Build/Dismantle Effects
 	virtual void PlayBuildEffects(AActor* inInstigator);
 	virtual void ExecutePlayBuildEffects();
 	virtual void OnBuildEffectFinished();
@@ -94,4 +98,11 @@ protected:
 	void OnRep_CustomizationData();
 
 	virtual void Native_OnMaterialInstancesUpdated();
+
+private:
+	virtual void OnRep_Connections();
+	virtual UStaticMeshComponent* CreateNewWireMesh();
+	virtual void DestroyWireInstances();
+	virtual void UpdateWireMeshes();
+	^^^ */
 };
