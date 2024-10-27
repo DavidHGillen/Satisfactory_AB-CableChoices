@@ -60,6 +60,8 @@ public:
 
 	virtual void BeginPlay() override;
 
+	static void UpdateIfYours(const FWireInstance* changedWire);
+
 protected:
 
 	//~ Begin IFGColorInterface

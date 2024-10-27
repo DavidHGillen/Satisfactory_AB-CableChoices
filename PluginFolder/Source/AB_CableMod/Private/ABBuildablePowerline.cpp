@@ -1,6 +1,7 @@
 // Copyright David "Angry Beaver" Gillen, details listed on associated mods Readme
 
 #include "ABBuildablePowerline.h"
+#include "Kismet/GameplayStatics.h"
 
 // Satic init ////
 
@@ -22,6 +23,28 @@ void AABBuildablePowerline::BeginPlay() {
 	GetWorldTimerManager().SetTimerForNextTick(Bypass);
 
 	////UE_LOG(LogTemp, Warning, TEXT(")))) Begin Play"));
+}
+
+void AABBuildablePowerline::UpdateIfYours(const FWireInstance* changedWire) {
+	////UE_LOG(LogTemp, Warning, TEXT("(--) UpdateIfYours"));
+	UWorld* world = changedWire->WireMesh->GetWorld();
+	TArray<AActor*> powerlines = TArray<AActor*>();
+
+	if (world == NULL) { return; }
+
+	// DHG: Yeah this is gross, but until I find where an upgrade in place occurs in the buildgun, this has gotta be it.
+	UGameplayStatics::GetAllActorsOfClass(world, AABBuildablePowerline::StaticClass(), powerlines);
+
+	for (int i = powerlines.Num() - 1; i >= 0; i--) { // check most recent lines first?
+		AABBuildablePowerline* line = Cast<AABBuildablePowerline>(powerlines[i]);
+
+		for (int j = line->mWireInstances.Num() - 1; j >= 0; j--) {
+			if (&(line->mWireInstances[j]) == changedWire) {
+				line->ApplyCustomizationData_Native(line->mCustomizationData);
+				return;
+			}
+		}
+	}
 }
 
 // Factory interface ////
@@ -48,8 +71,6 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 	for (int i = 0; i < lineCount; i++) {
 		////UE_LOG(LogTemp, Warning, TEXT("(((( set %d"), i);
 		powerlineMeshes[i]->SetMaterial(0, powerlineMat);
-		powerlineMeshes[i]->SetCollisionProfileName("BlockOnlyBuildGun", false); //can't target for customization w/o. luckily this is forced to run on beign play
-		powerlineMeshes[i]->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
 		//if (powerlineFX != nullptr) {
 	}
 	////UE_LOG(LogTemp, Warning, TEXT(")))) ApplyCustomizationData_Native"));
