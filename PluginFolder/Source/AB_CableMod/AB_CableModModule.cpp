@@ -11,7 +11,7 @@ void FAB_CableModModule::StartupModule() {
 	// Hooking
 	#if !WITH_EDITOR
 
-	SUBSCRIBE_METHOD_AFTER(AFGBuildableWire::UpdateWireInstanceMesh, [](void, const FWireInstance& wireInstance) {
+	SUBSCRIBE_METHOD_AFTER(AFGBuildableWire::UpdateWireInstanceMesh, [](const FWireInstance& wireInstance) {
 		//UE_LOG(LogTemp, Warning, TEXT("--() UpdateWireInstanceMesh"));
 		// 
 		// handle customization data updates for my classes
