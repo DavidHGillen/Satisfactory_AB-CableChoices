@@ -55,8 +55,8 @@ protected:
 
 public:
 	// AActor interface
-	////virtual void OnConstruction(const FTransform& transform) override;
-	////virtual bool Connect(class UFGCircuitConnectionComponent* first, class UFGCircuitConnectionComponent* second);
+	virtual void OnConstruction(const FTransform& transform) override;
+	virtual bool Connect(class UFGCircuitConnectionComponent* first, class UFGCircuitConnectionComponent* second);
 
 	virtual void BeginPlay() override;
 
@@ -67,7 +67,7 @@ protected:
 	//~ Begin IFGColorInterface
 	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 
-	/* ^^^
+	//* ^^^
 	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
 	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine = false);
 	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
@@ -106,5 +106,5 @@ private:
 	virtual UStaticMeshComponent* CreateNewWireMesh();
 	virtual void DestroyWireInstances();
 	virtual void UpdateWireMeshes();
-	^^^ */
+	/* ^^^ */
 };
