@@ -1,8 +1,8 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.1.0",
-	"SemVersion": "1.1.0",
+	"VersionName": "1.1.2",
+	"SemVersion": "1.1.2",
 	"FriendlyName": "Cable Choices Plus",
 	"Description": "Style your power grid! Powerlines with twice the length, add-ons for power towers, railway adapters, more powerpole styles, and a wide variety of looks for cables including lightup effects. Everything interacts with the customization system and it's multiplayer friendly.",
 	"Category": "Modding",
@@ -15,12 +15,12 @@
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": false,
 	"Installed": false,
-	"GameVersion": ">=365306",
-	"Modules" : [
+	"GameVersion": ">=382498",
+	"Modules": [
 		{
-			"Name" : "AB_CableMod",
-			"Type" : "Runtime",
-			"LoadingPhase" : "Default"
+			"Name": "AB_CableMod",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
 		}
 	],
 	"Plugins": [

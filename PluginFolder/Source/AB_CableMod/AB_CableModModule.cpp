@@ -12,7 +12,7 @@ void FAB_CableModModule::StartupModule() {
 	#if !WITH_EDITOR
 
 	SUBSCRIBE_METHOD_AFTER(AFGBuildableWire::UpdateWireInstanceMesh, [](const FWireInstance& wireInstance) {
-		UE_LOG(LogTemp, Warning, TEXT("--() UpdateWireInstanceMesh"));
+		//UE_LOG(LogTemp, Warning, TEXT("--() UpdateWireInstanceMesh"));
 
 		UStaticMeshComponent* meshRef = wireInstance.WireMesh;
 		if (meshRef == NULL) { return; }
@@ -26,6 +26,7 @@ void FAB_CableModModule::StartupModule() {
 		}
 	});
 
+	/*
 	SUBSCRIBE_METHOD_AFTER(AFGBuildableWire::CreateWireInstance, [](FWireInstance wireInstance, const FVector& FirstLocation, const FVector& SecondLocation, const FTransform& WireTransform) {
 		UE_LOG(LogTemp, Warning, TEXT("--() CreateWireInstance"));
 	});
@@ -37,7 +38,7 @@ void FAB_CableModModule::StartupModule() {
 	SUBSCRIBE_METHOD_AFTER(AFGBuildableWire::UpdateWireMeshes, [](AFGBuildableWire* self) {
 		UE_LOG(LogTemp, Warning, TEXT("--() UpdateWireMeshes"));
 	});
-
+	*/
 	#endif
 	// End Hooking
 }
