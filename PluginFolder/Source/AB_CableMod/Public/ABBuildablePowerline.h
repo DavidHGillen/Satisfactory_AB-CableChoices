@@ -67,12 +67,14 @@ protected:
 	//~ Begin IFGColorInterface
 	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData);
 
-	/* ^^^
 	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
 	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine = false);
 	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData);
+
+	/* ^^^
 	FFactoryCustomizationData GetCustomizationData_Implementation();
 	FFactoryCustomizationData& GetCustomizationData_Native();
+
 	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Implementation();
 	TSubclassOf< UFGFactorySkinActorData > GetFactorySkinClass_Native();
 	TSubclassOf< UFGFactoryCustomizationDescriptor_Skin > GetActiveSkin_Native();

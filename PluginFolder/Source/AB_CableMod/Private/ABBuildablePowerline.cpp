@@ -49,9 +49,9 @@ void AABBuildablePowerline::UpdateIfYours(const FWireInstance* changedWire) {
 
 // Factory interface ////
 void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomizationData & customizationData) {
-	//UE_LOG(LogTemp, Warning, TEXT("(((( ApplyCustomizationData_Native"));
+	UE_LOG(LogTemp, Warning, TEXT("(((( ApplyCustomizationData_Native"));
 	Super::ApplyCustomizationData_Native(customizationData);
-	//UE_LOG(LogTemp, Warning, TEXT(")--( ApplyCustomizationData_Native"));
+	UE_LOG(LogTemp, Warning, TEXT(")--( ApplyCustomizationData_Native"));
 
 	// add my skin system adaptation //
 
@@ -73,8 +73,37 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 		powerlineMeshes[i]->SetMaterial(0, powerlineMat);
 		//if (powerlineFX != nullptr) {
 	}
-	//UE_LOG(LogTemp, Warning, TEXT(")))) ApplyCustomizationData_Native"));
+	UE_LOG(LogTemp, Warning, TEXT(")))) ApplyCustomizationData_Native"));
 }
+
+void AABBuildablePowerline::ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData) {
+	UE_LOG(LogTemp, Warning, TEXT("(((( ApplyCustomizationData_Implementation"));
+	Super::ApplyCustomizationData_Implementation(customizationData);
+	UE_LOG(LogTemp, Warning, TEXT(")--( ApplyCustomizationData_Implementation"));
+}
+/*
+FFactoryCustomizationData AABBuildablePowerline::GetCustomizationData_Implementation() {
+	UE_LOG(LogTemp, Warning, TEXT("(--) GetCustomizationData_Implementation"));
+	return Super::GetCustomizationData_Implementation();
+}
+
+FFactoryCustomizationData& AABBuildablePowerline::GetCustomizationData_Native() {
+	UE_LOG(LogTemp, Warning, TEXT("(--) GetCustomizationData_Native"));
+	return Super::GetCustomizationData_Native();
+}
+*/
+void AABBuildablePowerline::SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData) {
+	UE_LOG(LogTemp, Warning, TEXT("(((( SetCustomizationData_Implementation"));
+	Super::SetCustomizationData_Implementation(customizationData);
+	UE_LOG(LogTemp, Warning, TEXT(")))) SetCustomizationData_Implementation"));
+}
+
+void AABBuildablePowerline::SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine) {
+	UE_LOG(LogTemp, Warning, TEXT("(((( SetCustomizationData_Native"));
+	Super::SetCustomizationData_Native(customizationData, skipCombine);
+	UE_LOG(LogTemp, Warning, TEXT(")))) SetCustomizationData_Native"));
+}
+
 
 /* ^^^
 // Debugging
@@ -87,16 +116,6 @@ void AABBuildablePowerline::OnConstruction(const FTransform& transform) {
 bool AABBuildablePowerline::Connect(UFGCircuitConnectionComponent* first, UFGCircuitConnectionComponent* second) {
 	//UE_LOG(LogTemp, Warning, TEXT("(--) Connect"));
 	return Super::Connect(first, second);
-}
-
-FFactoryCustomizationData AABBuildablePowerline::GetCustomizationData_Implementation() {
-	//UE_LOG(LogTemp, Warning, TEXT("(--) GetCustomizationData_Implementation"));
-	return Super::GetCustomizationData_Implementation();
-}
-
-FFactoryCustomizationData& AABBuildablePowerline::GetCustomizationData_Native() {
-	//UE_LOG(LogTemp, Warning, TEXT("(--) GetCustomizationData_Native"));
-	return Super::GetCustomizationData_Native();
 }
 
 TSubclassOf<UFGFactorySkinActorData> AABBuildablePowerline::GetFactorySkinClass_Implementation() {
@@ -132,12 +151,6 @@ void AABBuildablePowerline::Native_OnMaterialInstancesUpdated() {
 	//UE_LOG(LogTemp, Warning, TEXT("(((( Native_OnMaterialInstancesUpdated"));
 	Super::Native_OnMaterialInstancesUpdated();
 	//UE_LOG(LogTemp, Warning, TEXT(")))) Native_OnMaterialInstancesUpdated"));
-}
-
-void AABBuildablePowerline::SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine) {
-	//UE_LOG(LogTemp, Warning, TEXT("(((( SetCustomizationData_Native"));
-	Super::SetCustomizationData_Native(customizationData, skipCombine);
-	//UE_LOG(LogTemp, Warning, TEXT(")))) SetCustomizationData_Native"));
 }
 
 TSubclassOf<UFGFactoryCustomizationDescriptor_Skin> AABBuildablePowerline::GetActiveSkin_Native() {
