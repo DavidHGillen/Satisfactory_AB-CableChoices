@@ -1,0 +1,519 @@
+﻿# AB_CableMod English translation.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: AB_CableMod\n"
+"POT-Creation-Date: 2025-08-06 04:50\n"
+"PO-Revision-Date: 2025-08-06 04:50\n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Crowdin-SourceKey: msgstr\n"
+
+#. Key:	A369D79F457B5125BEDBAE9A9899F328
+#. SourceLocation:	/AB_CableMod/-Shared/BGSC_Powerlines.Default__BGSC_Powerlines_C.mDisplayName
+#: /AB_CableMod/-Shared/BGSC_Powerlines.Default__BGSC_Powerlines_C.mDisplayName
+msgid ",A369D79F457B5125BEDBAE9A9899F328"
+msgstr "Powerlines"
+
+#. Key:	C333B8EE483C459DE0B45A8387DB85C7
+#. SourceLocation:	/AB_CableMod/-Shared/CSC_Materials_Powerline.Default__CSC_Materials_Powerline_C.mDisplayName
+#: /AB_CableMod/-Shared/CSC_Materials_Powerline.Default__CSC_Materials_Powerline_C.mDisplayName
+msgid ",C333B8EE483C459DE0B45A8387DB85C7"
+msgstr "Powerline Materials"
+
+#. Key:	CAD872454919C75BBDCD34A7B822BF80
+#. SourceLocation:	/AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-Au.Default__MaterialDesc_ABCable-Au_C.mDescription
+#: /AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-Au.Default__MaterialDesc_ABCable-Au_C.mDescription
+msgid ",CAD872454919C75BBDCD34A7B822BF80"
+msgstr "Caterium infused power infrastructure that is usually more stylish and fancy"
+
+#. Key:	137261774D3FEA6E217297810716D37E
+#. SourceLocation:	/AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-Cu.Default__MaterialDesc_ABCable-Cu_C.mDescription
+#: /AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-Cu.Default__MaterialDesc_ABCable-Cu_C.mDescription
+msgid ",137261774D3FEA6E217297810716D37E"
+msgstr "The default Ficsit look for power infrastructure"
+
+#. Key:	A79B8FE84D40703453355B9629D92666
+#. SourceLocation:	/AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-El.Default__MaterialDesc_ABCable-El_C.mDescription
+#: /AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-El.Default__MaterialDesc_ABCable-El_C.mDescription
+msgid ",A79B8FE84D40703453355B9629D92666"
+msgstr "Complex electronic devices are used in this power infrastructure that doesn't change anything expect looks"
+
+#. Key:	0F8BA49C4FF847C384881B9C2B03E695
+#. SourceLocation:	/AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-Si.Default__MaterialDesc_ABCable-Si_C.mDescription
+#: /AB_CableMod/-Shared/Customization/MaterialDesc_ABCable-Si.Default__MaterialDesc_ABCable-Si_C.mDescription
+msgid ",0F8BA49C4FF847C384881B9C2B03E695"
+msgstr "Silica augmented power infrastructure that is usually functional and clean"
+
+#. Key:	D1BD42AA4CE68CFF7FD0FA8563161262
+#. SourceLocation:	/AB_CableMod/-Shared/Customization/SkinDesc_Powerline_Lumifibre.Default__SkinDesc_Powerline_Lumifibre_C.mDescription
+#: /AB_CableMod/-Shared/Customization/SkinDesc_Powerline_Lumifibre.Default__SkinDesc_Powerline_Lumifibre_C.mDescription
+msgid ",D1BD42AA4CE68CFF7FD0FA8563161262"
+msgstr "Special lighting and effect variations of powerlines"
+
+#. Key:	955DF390483A0F761C0C97866886AD30
+#. SourceLocation:	/AB_CableMod/Cables_Heavy/Build_AB-PLHeavy-Cu.Default__Build_AB-PLHeavy-Cu_C.mDescription
+#: /AB_CableMod/Cables_Heavy/Build_AB-PLHeavy-Cu.Default__Build_AB-PLHeavy-Cu_C.mDescription
+msgid ",955DF390483A0F761C0C97866886AD30"
+msgstr "Length: Max 200m / 15m\r\n\r\nThis durable cable is a little more expensive to run, but reaches longer lengths. Best run as a backbone between facilities."
+
+#. Key:	0AF9181242B9F78B9773B89F683CB855
+#. SourceLocation:	/AB_CableMod/Cables_Heavy/Build_AB-PLHeavy-Cu.Default__Build_AB-PLHeavy-Cu_C.mDisplayName
+#: /AB_CableMod/Cables_Heavy/Build_AB-PLHeavy-Cu.Default__Build_AB-PLHeavy-Cu_C.mDisplayName
+msgid ",0AF9181242B9F78B9773B89F683CB855"
+msgstr "Heavy Power Line"
+
+#. Key:	9CCE38534B4535FEAF08BBA830863D1D
+#. SourceLocation:	/AB_CableMod/Cables_Standard/Build_AB-PLStandard-Cu.Default__Build_AB-PLStandard-Cu_C.mDescription
+#: /AB_CableMod/Cables_Standard/Build_AB-PLStandard-Cu.Default__Build_AB-PLStandard-Cu_C.mDescription
+msgid ",9CCE38534B4535FEAF08BBA830863D1D"
+msgstr "Length: Max 100m / 25m\r\n\r\nThis standard length wire is equivelant to normal cable, but you can paint it! Best used when color coding helps. "
+
+#. Key:	9C9307664D2A8F79A06E0E9A80084AC0
+#. SourceLocation:	/AB_CableMod/Cables_Standard/Build_AB-PLStandard-Cu.Default__Build_AB-PLStandard-Cu_C.mDisplayName
+#: /AB_CableMod/Cables_Standard/Build_AB-PLStandard-Cu.Default__Build_AB-PLStandard-Cu_C.mDisplayName
+msgid ",9C9307664D2A8F79A06E0E9A80084AC0"
+msgstr "Paintable Power Line"
+
+#. Key:	AD166E85400A119F7096BBADA85A7D37
+#. SourceLocation:	/AB_CableMod/Cables_Wire/Build_AB-PLWire-Au.Default__Build_AB-PLWire-Au_C.mDescription
+#: /AB_CableMod/Cables_Wire/Build_AB-PLWire-Au.Default__Build_AB-PLWire-Au_C.mDescription
+msgid ",AD166E85400A119F7096BBADA85A7D37"
+msgstr "Length: Max 80m / 40m\r\n\r\nThis shorter bare wire is tied up neatly but probably still dangerous. Best run on the last mile to a machine. "
+
+#. Key:	0A25B4DC4FA3A8E2F59CCA8E287C9D25
+#. SourceLocation:	/AB_CableMod/Cables_Wire/Build_AB-PLWire-Au.Default__Build_AB-PLWire-Au_C.mDisplayName
+#: /AB_CableMod/Cables_Wire/Build_AB-PLWire-Au.Default__Build_AB-PLWire-Au_C.mDisplayName
+msgid ",0A25B4DC4FA3A8E2F59CCA8E287C9D25"
+msgstr "Neat Wire Power Line"
+
+#. Key:	885457B6421F6B56CD954E83CC7CC9AC
+#. SourceLocation:	/AB_CableMod/Cables_Wire/Build_AB-PLWire-Cu.Default__Build_AB-PLWire-Cu_C.mDescription
+#: /AB_CableMod/Cables_Wire/Build_AB-PLWire-Cu.Default__Build_AB-PLWire-Cu_C.mDescription
+msgid ",885457B6421F6B56CD954E83CC7CC9AC"
+msgstr "Length: Max 80m / 40m\r\n\r\nThis shorter bare wire is exposed and very likely dangerous. Best run on the last mile to a machine."
+
+#. Key:	9F0EB3FE47176BFBB7C87AABA55F3E7A
+#. SourceLocation:	/AB_CableMod/Cables_Wire/Build_AB-PLWire-Cu.Default__Build_AB-PLWire-Cu_C.mDisplayName
+#: /AB_CableMod/Cables_Wire/Build_AB-PLWire-Cu.Default__Build_AB-PLWire-Cu_C.mDisplayName
+msgid ",9F0EB3FE47176BFBB7C87AABA55F3E7A"
+msgstr "Frayed Wire Power Line"
+
+#. Key:	D531ADDB467CEE49172CD5BBB60343F2
+#. SourceLocation:	/AB_CableMod/Cables_Wire/Build_AB-PLWire-Si.Default__Build_AB-PLWire-Si_C.mDescription
+#: /AB_CableMod/Cables_Wire/Build_AB-PLWire-Si.Default__Build_AB-PLWire-Si_C.mDescription
+msgid ",D531ADDB467CEE49172CD5BBB60343F2"
+msgstr "Length: Max 80m / 40m\r\n\r\nThis taut wrapped wire is tied up neatly and drawn straight. Best run on the last mile to a machine. "
+
+#. Key:	7D12A9184F3D704FB1B47E8918304E1A
+#. SourceLocation:	/AB_CableMod/Cables_Wire/Build_AB-PLWire-Si.Default__Build_AB-PLWire-Si_C.mDisplayName
+#: /AB_CableMod/Cables_Wire/Build_AB-PLWire-Si.Default__Build_AB-PLWire-Si_C.mDisplayName
+msgid ",7D12A9184F3D704FB1B47E8918304E1A"
+msgstr "Straight Wire Power Line"
+
+#. Key:	3DE7EA834D74C1CFD4FA3DB30AD26B1A
+#. SourceLocation:	/AB_CableMod/GroundingSpike/Build_AB-GroundingSpike-Tower.Default__Build_AB-GroundingSpike-Tower_C.mDisplayName
+#: /AB_CableMod/GroundingSpike/Build_AB-GroundingSpike-Tower.Default__Build_AB-GroundingSpike-Tower_C.mDisplayName
+msgid ",3DE7EA834D74C1CFD4FA3DB30AD26B1A"
+msgstr "Tower Ground Spike"
+
+#. Key:	4792F5354ABBB97F388F9CA5FA833B02
+#. SourceLocation:	/AB_CableMod/GroundingSpike/Build_AB-GroundingSpike.Default__Build_AB-GroundingSpike_C.mDisplayName
+#: /AB_CableMod/GroundingSpike/Build_AB-GroundingSpike.Default__Build_AB-GroundingSpike_C.mDisplayName
+msgid ",4792F5354ABBB97F388F9CA5FA833B02"
+msgstr "Pole Ground Spike"
+
+#. Key:	Build_DelaySwitch
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,Build_DelaySwitch"
+msgstr "Delay Switch"
+
+#. Key:	Build_ProximitySwitch
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,Build_ProximitySwitch"
+msgstr "Proximity Switch"
+
+#. Key:	BuildDesc_GroundingSpike
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,BuildDesc_GroundingSpike"
+msgstr "Can handle a single Power Line connection.\r\n\r\nAdd an easy slope up to a zipline, or just correctly ground your powerline terminals."
+
+#. Key:	BuildDesc_PowertowerWallmount
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,BuildDesc_PowertowerWallmount"
+msgstr "Extend your power tower lines right up to your buildings with these sizeable wall mounted versions of power tower connections."
+
+#. Key:	BuildDesc_SkyhookPowerpole
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,BuildDesc_SkyhookPowerpole"
+msgstr "Can handle up to 5 Power Line connections.\r\n\r\nRedesigned Power Pole with a reinforced overhanging cable support. Capable of taking heavier loads, most commonly pioneers on zaplines."
+
+#. Key:	PowerlineMaterial_Alien
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineMaterial_Alien"
+msgstr "Alien Power Material"
+
+#. Key:	PowerlineMaterial_Caterium
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineMaterial_Caterium"
+msgstr "Caterium Power Material"
+
+#. Key:	PowerlineMaterial_Circuitboard
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineMaterial_Circuitboard"
+msgstr "Complex Power Material"
+
+#. Key:	PowerlineMaterial_Silica
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineMaterial_Silica"
+msgstr "Silica Power Material"
+
+#. Key:	PowerlineMaterial_Standard
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineMaterial_Standard"
+msgstr "Ficsit Power Material"
+
+#. Key:	PowerlineSkin_Glowy
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineSkin_Glowy"
+msgstr "Lumifibre Power Skin"
+
+#. Key:	PowerlineSkin_Normal
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineSkin_Normal"
+msgstr "Normal Power Skin"
+
+#. Key:	PowerlineSkin_XMAS
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineSkin_XMAS"
+msgstr "Ficsmas Power Skin"
+
+#. Key:	PowerlineType_BareWire
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineType_BareWire"
+msgstr "Wire Powerlines"
+
+#. Key:	PowerlineType_Beam
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineType_Beam"
+msgstr "Wireless Powerlines"
+
+#. Key:	PowerlineType_Decorative
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineType_Decorative"
+msgstr "Decorative Powerlines"
+
+#. Key:	PowerlineType_Heavy
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineType_Heavy"
+msgstr "Heavy Powerlines"
+
+#. Key:	PowerlineType_Standard
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,PowerlineType_Standard"
+msgstr "Standard Powerlines"
+
+#. Key:	Setting_DelayTime
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,Setting_DelayTime"
+msgstr "Delay Time"
+
+#. Key:	SuffixSeconds
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,SuffixSeconds"
+msgstr "s"
+
+#. Key:	SwitchState_Connected
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,SwitchState_Connected"
+msgstr "Connected"
+
+#. Key:	SwitchState_Delaying
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,SwitchState_Delaying"
+msgstr "Delaying"
+
+#. Key:	SwitchState_Unconnected
+#. SourceLocation:	/AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+#: /AB_CableMod/Localization/CC_SharedStringTable.CC_SharedStringTable
+msgid "CC_SharedStringTable,SwitchState_Unconnected"
+msgstr "Unconnected"
+
+#. Key:	19CA2FCA4D9688E24BDF718549F79D52
+#. SourceLocation:	/AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+#: /AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+msgid ",19CA2FCA4D9688E24BDF718549F79D52"
+msgstr "MW"
+
+#. Key:	42FC6A7F4389BC33428A70AE6F0733B8
+#. SourceLocation:	/AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+#: /AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+msgid ",42FC6A7F4389BC33428A70AE6F0733B8"
+msgstr "MW"
+
+#. Key:	C75F0F334C4EA832BB4E2182BD1BACE6
+#. SourceLocation:	/AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+#: /AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+msgid ",C75F0F334C4EA832BB4E2182BD1BACE6"
+msgstr "MW"
+
+#. Key:	F846F568404EF9B9DCE29F98295B3E77
+#. SourceLocation:	/AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+#: /AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+msgid ",F846F568404EF9B9DCE29F98295B3E77"
+msgstr "MW"
+
+#. Key:	FF71F8FE4B1D89BF779673846F8CAE7F
+#. SourceLocation:	/AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+#: /AB_CableMod/PowerGates/AB_PowerWidgetHelpers.AB_PowerWidgetHelpers_C:MakeDataHolder [Script Bytecode]
+msgid ",FF71F8FE4B1D89BF779673846F8CAE7F"
+msgstr "MW"
+
+#. Key:	126C77E54669FF76D43A47988D66555D
+#. SourceLocation:	/AB_CableMod/PowerGates/DelaySwitch/BPW_AB-DelaySwitch.BPW_AB-DelaySwitch_C:WidgetTree.TextBlock.Text
+#: /AB_CableMod/PowerGates/DelaySwitch/BPW_AB-DelaySwitch.BPW_AB-DelaySwitch_C:WidgetTree.TextBlock.Text
+msgid ",126C77E54669FF76D43A47988D66555D"
+msgstr "Power Grid In"
+
+#. Key:	C232B11D44D583AB119667AAEFBB7240
+#. SourceLocation:	/AB_CableMod/PowerGates/DelaySwitch/BPW_AB-DelaySwitch.BPW_AB-DelaySwitch_C:WidgetTree.TextBlock_188.Text
+#: /AB_CableMod/PowerGates/DelaySwitch/BPW_AB-DelaySwitch.BPW_AB-DelaySwitch_C:WidgetTree.TextBlock_188.Text
+msgid ",C232B11D44D583AB119667AAEFBB7240"
+msgstr "Power Grid Out"
+
+#. Key:	1CE27D7A46FF46DF48E06C8563A84725
+#. SourceLocation:	/AB_CableMod/PowerGates/DelaySwitch/Build_AB-DelaySwitch.Default__Build_AB-DelaySwitch_C.mDescription
+#: /AB_CableMod/PowerGates/DelaySwitch/Build_AB-DelaySwitch.Default__Build_AB-DelaySwitch_C.mDescription
+msgid ",1CE27D7A46FF46DF48E06C8563A84725"
+msgstr "After a delay, connect the switch. Delay begins when both ends are connected and the input grid has power.\r\n\r\nStagger lights turning on for cool effects, offset devices with large power draws, or whatever you desire."
+
+#. Key:	5863B09842AF2FBA30A355B75C098AFC
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/BPW_AB-ProxSwitch.BPW_AB-ProxSwitch_C:WidgetTree.TextBlock_2.Text
+#: /AB_CableMod/PowerGates/ProxSwitch/BPW_AB-ProxSwitch.BPW_AB-ProxSwitch_C:WidgetTree.TextBlock_2.Text
+msgid ",5863B09842AF2FBA30A355B75C098AFC"
+msgstr "Beam Width"
+
+#. Key:	A0E2B28E44B07FC59B4FC8BA4FFD2788
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.mDescription
+#: /AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.mDescription
+msgid ",A0E2B28E44B07FC59B4FC8BA4FFD2788"
+msgstr "When an object is sensed infront of the panel the switch is engaged. It will stay on while anything is present. When empty, after a delay, the switch will turn off.\r\n\r\nKeep only the lights near you on, detect when vehicles are approaching crossings, or wait till you're nearby to run hypertube entrances.\r\n\r\nNote: Has been known to optimize itself into not toggling untill player is in general vicinty regardless of settings."
+
+#. Key:	B72DADB64EA67D195E2BF88A014C6987
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(0).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+#: /AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(0).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+msgid ",B72DADB64EA67D195E2BF88A014C6987"
+msgstr "Pioneers"
+
+#. Key:	EF3906EF4332B597DEC9FAB6372B8FA4
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(1).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+#: /AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(1).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+msgid ",EF3906EF4332B597DEC9FAB6372B8FA4"
+msgstr "Vehicles"
+
+#. Key:	AC5DA6864EB8144D302AB6ABD8839E3E
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(2).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+#: /AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(2).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+msgid ",AC5DA6864EB8144D302AB6ABD8839E3E"
+msgstr "Trains"
+
+#. Key:	984584004CF27968CE501D886DC5C58D
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(3).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+#: /AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(3).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+msgid ",984584004CF27968CE501D886DC5C58D"
+msgstr "Friendly Fauna"
+
+#. Key:	EF32A8244CCFBB78DC7F9D89B07072FE
+#. SourceLocation:	/AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(4).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+#: /AB_CableMod/PowerGates/ProxSwitch/Build_AB-ProxSwitch.Default__Build_AB-ProxSwitch_C.possibleSensors(4).possibleSensors.DisplayName_6_DDF231674AF26F7E3C1C689DBA22DA96
+msgid ",EF32A8244CCFBB78DC7F9D89B07072FE"
+msgstr "Hostile Fauna"
+
+#. Key:	557E48D549E1E58599455E95BB609784
+#. SourceLocation:	/AB_CableMod/PowerNubs/Build_ABPowerCornerMk1.Default__Build_ABPowerCornerMk1_C.mDescription
+#: /AB_CableMod/PowerNubs/Build_ABPowerCornerMk1.Default__Build_ABPowerCornerMk1_C.mDescription
+msgid ",557E48D549E1E58599455E95BB609784"
+msgstr "Power Pole that attaches to a foundation or wall corner.\r\n\r\nCan handle up to 4 Power Line connections.\r\n\r\nConnect Power Poles, Power Generators and factory buildings together with Power Lines to create a power grid. The power grid supplies the connected buildings with power."
+
+#. Key:	416242804144C962F8245A8F07DB90AF
+#. SourceLocation:	/AB_CableMod/PowerNubs/Build_ABPowerCornerMk1.Default__Build_ABPowerCornerMk1_C.mDisplayName
+#: /AB_CableMod/PowerNubs/Build_ABPowerCornerMk1.Default__Build_ABPowerCornerMk1_C.mDisplayName
+msgid ",416242804144C962F8245A8F07DB90AF"
+msgstr "Corner Outlet Mk.1"
+
+#. Key:	9559F218496612B21745D0AAC18E2791
+#. SourceLocation:	/AB_CableMod/PowerNubs/Build_ABPowerCornerMk2.Default__Build_ABPowerCornerMk2_C.mDisplayName
+#: /AB_CableMod/PowerNubs/Build_ABPowerCornerMk2.Default__Build_ABPowerCornerMk2_C.mDisplayName
+msgid ",9559F218496612B21745D0AAC18E2791"
+msgstr "Corner Outlet Mk.2"
+
+#. Key:	38FC8D52410DC14171DE1DBE467281E7
+#. SourceLocation:	/AB_CableMod/PowerNubs/Build_ABPowerCornerMk3.Default__Build_ABPowerCornerMk3_C.mDisplayName
+#: /AB_CableMod/PowerNubs/Build_ABPowerCornerMk3.Default__Build_ABPowerCornerMk3_C.mDisplayName
+msgid ",38FC8D52410DC14171DE1DBE467281E7"
+msgstr "Corner Outlet Mk.3"
+
+#. Key:	204520C94B207DAD6C6971A14D8B21F0
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTower_WallDouble.Default__Build_PowerTower_WallDouble_C.mDisplayName
+#: /AB_CableMod/PowerTower/Build_PowerTower_WallDouble.Default__Build_PowerTower_WallDouble_C.mDisplayName
+msgid ",204520C94B207DAD6C6971A14D8B21F0"
+msgstr "Tower Wall Terminator Double"
+
+#. Key:	AAB46D67449BD0479EEFA29FCB57EA37
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTower_WallSingle.Default__Build_PowerTower_WallSingle_C.mDisplayName
+#: /AB_CableMod/PowerTower/Build_PowerTower_WallSingle.Default__Build_PowerTower_WallSingle_C.mDisplayName
+msgid ",AAB46D67449BD0479EEFA29FCB57EA37"
+msgstr "Tower Wall Terminator"
+
+#. Key:	656D9FED428F9156B66B8CAC5E464E34
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTowerEx_Even.Default__Build_PowerTowerEx_Even_C.mDescription
+#: /AB_CableMod/PowerTower/Build_PowerTowerEx_Even.Default__Build_PowerTowerEx_Even_C.mDescription
+msgid ",656D9FED428F9156B66B8CAC5E464E34"
+msgstr "Power Tower Extender the same width as the standard connection"
+
+#. Key:	F4940FE34AD21F0FBAADFE9130B6A2ED
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTowerEx_Even.Default__Build_PowerTowerEx_Even_C.mDisplayName
+#: /AB_CableMod/PowerTower/Build_PowerTowerEx_Even.Default__Build_PowerTowerEx_Even_C.mDisplayName
+msgid ",F4940FE34AD21F0FBAADFE9130B6A2ED"
+msgstr "Tower Extender Standard"
+
+#. Key:	128F30E8490240DFD90EECB5ADE21038
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTowerEx_Point.Default__Build_PowerTowerEx_Point_C.mDescription
+#: /AB_CableMod/PowerTower/Build_PowerTowerEx_Point.Default__Build_PowerTowerEx_Point_C.mDescription
+msgid ",128F30E8490240DFD90EECB5ADE21038"
+msgstr "Power Tower Extender that takes a single central wire"
+
+#. Key:	47E1513F4876144085A7C18A54DBD363
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTowerEx_Point.Default__Build_PowerTowerEx_Point_C.mDisplayName
+#: /AB_CableMod/PowerTower/Build_PowerTowerEx_Point.Default__Build_PowerTowerEx_Point_C.mDisplayName
+msgid ",47E1513F4876144085A7C18A54DBD363"
+msgstr "Tower Extender Single"
+
+#. Key:	29AD0DCB423F946AE1BC9182BD947CB6
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTowerEx_Wide.Default__Build_PowerTowerEx_Wide_C.mDescription
+#: /AB_CableMod/PowerTower/Build_PowerTowerEx_Wide.Default__Build_PowerTowerEx_Wide_C.mDescription
+msgid ",29AD0DCB423F946AE1BC9182BD947CB6"
+msgstr "Power Tower Extender that has a wider spread"
+
+#. Key:	42750B994376FBFF658EA482E18084CF
+#. SourceLocation:	/AB_CableMod/PowerTower/Build_PowerTowerEx_Wide.Default__Build_PowerTowerEx_Wide_C.mDisplayName
+#: /AB_CableMod/PowerTower/Build_PowerTowerEx_Wide.Default__Build_PowerTowerEx_Wide_C.mDisplayName
+msgid ",42750B994376FBFF658EA482E18084CF"
+msgstr "Tower Extender Wide"
+
+#. Key:	6A5590FD4245C4E839FB699620991062
+#. SourceLocation:	/AB_CableMod/Railconnector/Build_ABRailPowerBox.Default__Build_ABRailPowerBox_C.mDescription
+#: /AB_CableMod/Railconnector/Build_ABRailPowerBox.Default__Build_ABRailPowerBox_C.mDescription
+msgid ",6A5590FD4245C4E839FB699620991062"
+msgstr "This power transformer snaps to a railway and allows you to tie into the power rail without a train station.\r\n\r\nFeel free to use the standard connection or the tower connection on the side."
+
+#. Key:	1F9B9E9940FBC9161F91CA9C4B8200CF
+#. SourceLocation:	/AB_CableMod/Railconnector/Build_ABRailPowerBox.Default__Build_ABRailPowerBox_C.mDisplayName
+#: /AB_CableMod/Railconnector/Build_ABRailPowerBox.Default__Build_ABRailPowerBox_C.mDisplayName
+msgid ",1F9B9E9940FBC9161F91CA9C4B8200CF"
+msgstr "Railway Power Transformer"
+
+#. Key:	42E6ED8442D17AF2148528B252AA71E7
+#. SourceLocation:	/AB_CableMod/Schem_AB-2_ExtraPowerpoles.Default__Schem_AB-2_ExtraPowerpoles_C.mDescription
+#: /AB_CableMod/Schem_AB-2_ExtraPowerpoles.Default__Schem_AB-2_ExtraPowerpoles_C.mDescription
+msgid ",42E6ED8442D17AF2148528B252AA71E7"
+msgstr "Extra powerpoles that support the weight of pioneers."
+
+#. Key:	369FB12D40B4D16A8C2B6991389B064C
+#. SourceLocation:	/AB_CableMod/Schem_AB-2_ExtraPowerpoles.Default__Schem_AB-2_ExtraPowerpoles_C.mDisplayName
+#: /AB_CableMod/Schem_AB-2_ExtraPowerpoles.Default__Schem_AB-2_ExtraPowerpoles_C.mDisplayName
+msgid ",369FB12D40B4D16A8C2B6991389B064C"
+msgstr "Skyhook Style Powerpoles"
+
+#. Key:	2A1B7552402696579B0B78B907AA9499
+#. SourceLocation:	/AB_CableMod/Schem_ABCableMaterial-Au.Default__Schem_ABCableMaterial-Au_C.mDescription
+#: /AB_CableMod/Schem_ABCableMaterial-Au.Default__Schem_ABCableMaterial-Au_C.mDescription
+msgid ",2A1B7552402696579B0B78B907AA9499"
+msgstr "This powerline material adjusts the look and shape of powerlines without affecting their function. It affects each type of powerline differently.\r\n\r\nCaterium infused power infrastructure is usually more stylish and fancy. EG: TODO\r\n\r\nMay affect any CC+ powerline. (TODO: not all combo's implemented)"
+
+#. Key:	1851A64A43648966EDB94BA9254DE7EB
+#. SourceLocation:	/AB_CableMod/Schem_ABCableMaterial-Si.Default__Schem_ABCableMaterial-Si_C.mDescription
+#: /AB_CableMod/Schem_ABCableMaterial-Si.Default__Schem_ABCableMaterial-Si_C.mDescription
+msgid ",1851A64A43648966EDB94BA9254DE7EB"
+msgstr "This powerline material adjusts the look and shape of powerlines without affecting their function. It affects each type of powerline differently.\r\n\r\nSilica augmented power infrastructure that is usually functional and clean. EG: Silica Bare Wire Powerlines are pulled tight into a straight line.\r\n\r\nMay affect any CC+ powerline. (TODO: not all combo's implemented)"
+
+#. Key:	FC186DB54CDD86F2780A49BF8637036D
+#. SourceLocation:	/AB_CableMod/Schem_ABCables-01WireStd.Default__Schem_ABCables-01WireStd_C.mDescription
+#: /AB_CableMod/Schem_ABCables-01WireStd.Default__Schem_ABCables-01WireStd_C.mDescription
+msgid ",FC186DB54CDD86F2780A49BF8637036D"
+msgstr "Simple easy powerline alternatives like bare wires or colourable lines"
+
+#. Key:	6F359E1B44C222B71AF5A59B4A535C55
+#. SourceLocation:	/AB_CableMod/Schem_ABCables-01WireStd.Default__Schem_ABCables-01WireStd_C.mDisplayName
+#: /AB_CableMod/Schem_ABCables-01WireStd.Default__Schem_ABCables-01WireStd_C.mDisplayName
+msgid ",6F359E1B44C222B71AF5A59B4A535C55"
+msgstr "Alternate Powerlines"
+
+#. Key:	2E378835418EED603E6A54A67B5E0930
+#. SourceLocation:	/AB_CableMod/Schem_ABCables-03Heavy.Default__Schem_ABCables-03Heavy_C.mDescription
+#: /AB_CableMod/Schem_ABCables-03Heavy.Default__Schem_ABCables-03Heavy_C.mDescription
+msgid ",2E378835418EED603E6A54A67B5E0930"
+msgstr "Heavier powerlines that allow for longer spans"
+
+#. Key:	4EC8CB6C47D2F1CA71F3ADBE0C4FBC48
+#. SourceLocation:	/AB_CableMod/Schem_ABCables-05Deco.Default__Schem_ABCables-05Deco_C.mDescription
+#: /AB_CableMod/Schem_ABCables-05Deco.Default__Schem_ABCables-05Deco_C.mDescription
+msgid ",4EC8CB6C47D2F1CA71F3ADBE0C4FBC48"
+msgstr "Decorative focused powerlines"
+
+#. Key:	C31EDBCE4A73F663B05A249A26A920A2
+#. SourceLocation:	/AB_CableMod/Schem_ABCables-06Beam.Default__Schem_ABCables-06Beam_C.mDescription
+#: /AB_CableMod/Schem_ABCables-06Beam.Default__Schem_ABCables-06Beam_C.mDescription
+msgid ",C31EDBCE4A73F663B05A249A26A920A2"
+msgstr "Short range wireless power transference techniques"
+
+#. Key:	35AAC95B427DB33A41F5CE971EEFC8F0
+#. SourceLocation:	/AB_CableMod/Schem_ABCableSkin-Lumifibre.Default__Schem_ABCableSkin-Lumifibre_C.mDescription
+#: /AB_CableMod/Schem_ABCableSkin-Lumifibre.Default__Schem_ABCableSkin-Lumifibre_C.mDescription
+msgid ",35AAC95B427DB33A41F5CE971EEFC8F0"
+msgstr "A Customizer Skin that adjusts the texture of powerlines without affecting their function. It affects each type AND material of powerline differently.\r\n\r\nLuminescent skins add lighting effects to the powerline. These can be used to light rooms or show a directional affect. EG Silica Wires look like simple glowing tubes, but Paintable Cables have a moving light.\r\n\r\nMay affect any CC+ powerline. (TODO: not all combo's implemented)"
+
+#. Key:	8DC6BAE44289FA9B8E9568A60FC1C2A4
+#. SourceLocation:	/AB_CableMod/Settings_Config-CC.Default__Settings_Config-CC_C:BP_ConfigPropertySection_C_0.HeaderText
+#: /AB_CableMod/Settings_Config-CC.Default__Settings_Config-CC_C:BP_ConfigPropertySection_C_0.HeaderText
+msgid ",8DC6BAE44289FA9B8E9568A60FC1C2A4"
+msgstr "Build Menu"
+
+#. Key:	8C77953143B1F858AD98B18146291786
+#. SourceLocation:	/AB_CableMod/SkyhookPowerpole/Build_AB-SkyhookPowerPole_Fixed.Default__Build_AB-SkyhookPowerPole_Fixed_C.mDisplayName
+#: /AB_CableMod/SkyhookPowerpole/Build_AB-SkyhookPowerPole_Fixed.Default__Build_AB-SkyhookPowerPole_Fixed_C.mDisplayName
+msgid ",8C77953143B1F858AD98B18146291786"
+msgstr "Skyhook Power Pole"
+
+#. Key:	E0CD7AE340A4A3096D702EB8986C3E34
+#. SourceLocation:	/AB_CableMod/SkyhookPowerpole/Build_AB-SkyhookWallmount_Fixed.Default__Build_AB-SkyhookWallmount_Fixed_C.mDisplayName
+#: /AB_CableMod/SkyhookPowerpole/Build_AB-SkyhookWallmount_Fixed.Default__Build_AB-SkyhookWallmount_Fixed_C.mDisplayName
+msgid ",E0CD7AE340A4A3096D702EB8986C3E34"
+msgstr "Skyhook Wallmount"
+
