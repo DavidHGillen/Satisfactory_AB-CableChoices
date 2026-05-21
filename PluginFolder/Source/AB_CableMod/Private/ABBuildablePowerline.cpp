@@ -46,6 +46,17 @@ void AABBuildablePowerline::UpdateIfYours(const FWireInstance* changedWire) {
 		}
 	}
 }
+void AABBuildablePowerline::AddNewSwatchGroupDefault(AFGGameState* gameState, TSubclassOf<UFGSwatchGroup> group,
+	TSubclassOf<UFGFactoryCustomizationDescriptor_Swatch> swatch
+) {
+	FSwatchGroupData groupData;
+	groupData.Swatch = swatch;
+	groupData.SwatchGroup = group;
+
+	gameState->mSwatchGroupDatum.Add(groupData);
+	gameState->SetDefaultSwatchForBuildableGroup(group, swatch);
+}
+
 
 // Factory interface ////
 void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomizationData & customizationData) {

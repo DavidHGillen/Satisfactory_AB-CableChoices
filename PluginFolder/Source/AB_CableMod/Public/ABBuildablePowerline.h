@@ -9,6 +9,8 @@
 #include "Buildables/FGBuildableWire.h"
 #include "Buildables/FGBuildableLightSource.h"
 #include "FGCircuit.h"
+#include "FGGameState.h"
+#include "FGSwatchGroup.h"
 
 #include "ABBuildablePowerline.generated.h"
 
@@ -61,6 +63,9 @@ public:
 	virtual void BeginPlay() override;
 
 	static void UpdateIfYours(const FWireInstance* changedWire);
+
+	UFUNCTION(BlueprintCallable, Category = "SwatchGroup")
+	static void AddNewSwatchGroupDefault(AFGGameState* gameState, TSubclassOf<UFGSwatchGroup> group, TSubclassOf<UFGFactoryCustomizationDescriptor_Swatch> swatch);
 
 protected:
 

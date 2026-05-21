@@ -7,7 +7,6 @@
 
 void FAB_CableModModule::StartupModule() {
 
-
 	// Hooking
 	#if !WITH_EDITOR
 
