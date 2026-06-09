@@ -4,9 +4,9 @@
 #include "FGConstructDisqualifier.h"
 
 bool AABPowerpoleSnapHologram::IsMatchingType(const FHitResult& hitResult) const {
-	AActor* hitActor = hitResult.GetActor();
+	TObjectPtr<AActor> hitActor = hitResult.GetActor();
 
-	if (AAbstractInstanceManager* hitAbstract = Cast<AAbstractInstanceManager>(hitActor)) {
+	if (TObjectPtr<AAbstractInstanceManager> hitAbstract = Cast<AAbstractInstanceManager>(hitActor)) {
 		FInstanceHandle instHandle;
 		hitAbstract->ResolveHit(hitResult, instHandle);
 		hitActor = instHandle.GetOwner<AActor>();
@@ -69,7 +69,7 @@ void AABPowerpoleSnapHologram::SetHologramLocationAndRotation(const FHitResult& 
 			return;
 		}
 	} else {
-		AFGBuildable* hitBuildable = Cast<AFGBuildable>(hitResult.GetActor());
+		TObjectPtr<AFGBuildable> hitBuildable = Cast<AFGBuildable>(hitResult.GetActor());
 		if (hitBuildable != nullptr && eSnapType != EABPoleSnapType::PST_None) {
 			FRotator rotOffset;
 			FVector locOffset;

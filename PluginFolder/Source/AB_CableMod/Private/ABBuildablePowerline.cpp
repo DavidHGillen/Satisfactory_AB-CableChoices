@@ -27,8 +27,8 @@ void AABBuildablePowerline::BeginPlay() {
 
 void AABBuildablePowerline::UpdateIfYours(const FWireInstance* changedWire) {
 	//UE_LOG(LogTemp, Warning, TEXT("(--) UpdateIfYours"));
-	UWorld* world = changedWire->WireMesh->GetWorld();
-	TArray<AActor*> powerlines = TArray<AActor*>();
+	TObjectPtr<UWorld> world = changedWire->WireMesh->GetWorld();
+	TArray<AActor*> powerlines = TArray<TObjectPtr<AActor>>();
 
 	if (world == NULL) { return; }
 
@@ -36,7 +36,7 @@ void AABBuildablePowerline::UpdateIfYours(const FWireInstance* changedWire) {
 	UGameplayStatics::GetAllActorsOfClass(world, AABBuildablePowerline::StaticClass(), powerlines);
 
 	for (int i = powerlines.Num() - 1; i >= 0; i--) { // check most recent lines first?
-		AABBuildablePowerline* line = Cast<AABBuildablePowerline>(powerlines[i]);
+		TObjectPtr<AABBuildablePowerline> line = Cast<AABBuildablePowerline>(powerlines[i]);
 
 		for (int j = line->mWireInstances.Num() - 1; j >= 0; j--) {
 			if (&(line->mWireInstances[j]) == changedWire) {
@@ -75,8 +75,8 @@ void AABBuildablePowerline::ApplyCustomizationData_Native(const FFactoryCustomiz
 	FABPowerlineCustomization* currentSkinData = skinToData.Find(skinDesc);
 	if (currentSkinData == nullptr) { currentSkinData = &defaultData; }
 
-	UMaterialInterface* powerlineMat = currentSkinData->material;
-	UNiagaraSystem* powerlineFX = currentSkinData->particleFX;
+	TObjectPtr<UMaterialInterface> powerlineMat = currentSkinData->material;
+	TObjectPtr<UNiagaraSystem> powerlineFX = currentSkinData->particleFX;
 
 	// apply
 	for (int i = 0; i < lineCount; i++) {

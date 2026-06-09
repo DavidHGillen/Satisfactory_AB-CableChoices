@@ -29,14 +29,14 @@ bool AABTrackPowersnapHologram::IsValidHitResult(const FHitResult& hitResult) co
 }
 
 bool AABTrackPowersnapHologram::TrySnapToActor(const FHitResult& hitResult) {
-	AFGBuildableRailroadTrack* testTrack = Cast<AFGBuildableRailroadTrack>(hitResult.GetActor());
+	TObjectPtr<AFGBuildableRailroadTrack> testTrack = Cast<AFGBuildableRailroadTrack>(hitResult.GetActor());
 	if (testTrack == nullptr) { // occurs when holding down T to snap to guidelines and moving aim off the rail
 		AddConstructDisqualifier(UFGCDMustHaveRailRoadTrack::StaticClass());
 		return false;
 	}
 
-	bool bChangedTrack = testTrack != mSnappedTrack && mSnappedTrack != nullptr; // no track to some track isn't a change
-	USplineComponent* splineRef = testTrack->GetSplineComponent();
+	bool bChangedTrack = (testTrack != mSnappedTrack) && (mSnappedTrack != nullptr); // no track to some track isn't a change
+	TObjectPtr<USplineComponent> splineRef = testTrack->GetSplineComponent();
 	mSnappedTrack = testTrack;
 
 	if (bTrySpacing) {

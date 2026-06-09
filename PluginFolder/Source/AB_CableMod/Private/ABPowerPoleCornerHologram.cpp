@@ -17,7 +17,7 @@
 // FG Code
 bool AABPowerPoleCornerHologram::IsValidHitResult(const FHitResult& hitResult) const {
 	UE_LOG(LogTemp, Warning, TEXT("|_ _| IsValid?"));
-	AActor* hitActor = hitResult.GetActor();
+	TObjectPtr<AActor> hitActor = hitResult.GetActor();
 	if (hitActor == NULL) { return false; }
 
 	bool valid = Super::IsValidHitResult(hitResult);
@@ -32,7 +32,7 @@ bool AABPowerPoleCornerHologram::TrySnapToActor(const FHitResult& hitResult) {
 
 	// reset to avoid unexpected behaviours
 	xExtent = yExtent = zExtent = 0;
-	AActor* hitActor = hitResult.GetActor();
+	TObjectPtr<AActor> hitActor = hitResult.GetActor();
 
 	//FRotator outRotation = FRotator::ZeroRotator;
 	FVector outLocation = FVector::Zero();
@@ -42,28 +42,28 @@ bool AABPowerPoleCornerHologram::TrySnapToActor(const FHitResult& hitResult) {
 	FVector localHitNormal = worldToActor.TransformVector(hitResult.ImpactNormal);
 
 
-	AFGBuildableWall* hitWall = Cast<AFGBuildableWall>(hitActor);
+	TObjectPtr<AFGBuildableWall> hitWall = Cast<AFGBuildableWall>(hitActor);
 	if (hitWall != NULL) {
 		UE_LOG(LogTemp, Warning, TEXT("|_ _| WALL!"));
 		SetActorLocationAndRotation(hitResult.Location, hitResult.Normal.Rotation());
 		return true;
 	}
 
-	AFGBuildableFoundation* hitFoundation = Cast<AFGBuildableFoundation>(hitActor);
+	TObjectPtr<AFGBuildableFoundation> hitFoundation = Cast<AFGBuildableFoundation>(hitActor);
 	if (hitFoundation != NULL) {
 		UE_LOG(LogTemp, Warning, TEXT("|_ _| FOUNDER!"));
 		SetActorLocationAndRotation(hitResult.Location, hitResult.Normal.Rotation());
 		return true;
 	}
 
-	AFGBuildablePillar* hitPillar = Cast<AFGBuildablePillar>(hitActor);
+	TObjectPtr<AFGBuildablePillar> hitPillar = Cast<AFGBuildablePillar>(hitActor);
 	if (hitPillar != NULL) {
 		UE_LOG(LogTemp, Warning, TEXT("|_ _| PILLS!"));
 		SetActorLocationAndRotation(hitResult.Location, hitResult.Normal.Rotation());
 		return true;
 	}
 
-	AFGBuildableBeam* hitBeam = Cast<AFGBuildableBeam>(hitActor);
+	TObjectPtr<AFGBuildableBeam> hitBeam = Cast<AFGBuildableBeam>(hitActor);
 	if (hitBeam != NULL) {
 		UE_LOG(LogTemp, Warning, TEXT("|_ _| BEAM!"));
 		FBox clearanceSnap = hitBeam->GetCombinedClearanceBox();

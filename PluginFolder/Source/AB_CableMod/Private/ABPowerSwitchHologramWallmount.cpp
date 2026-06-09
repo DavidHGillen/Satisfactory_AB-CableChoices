@@ -22,7 +22,7 @@ float AABPowerSwitchHologramWallmount::GetRotationMajorFinal() {
 }
 
 bool AABPowerSwitchHologramWallmount::IsValidHitResult(const FHitResult& hitResult) const {
-	AActor* hitActor = hitResult.GetActor();
+	TObjectPtr<AActor> hitActor = hitResult.GetActor();
 	if (hitActor == NULL) { return false; }
 
 	if (Cast<AFGBuildableRailroadTrack>(hitActor) != NULL) {
@@ -33,7 +33,7 @@ bool AABPowerSwitchHologramWallmount::IsValidHitResult(const FHitResult& hitResu
 		return true;
 	}
 
-	AFGBuildablePillar* hitPillar = Cast<AFGBuildablePillar>(hitActor);
+	TObjectPtr<AFGBuildablePillar> hitPillar = Cast<AFGBuildablePillar>(hitActor);
 	if (hitPillar != NULL && hitPillar->IsSupport()) {
 		return false;
 	}
@@ -53,7 +53,7 @@ bool AABPowerSwitchHologramWallmount::CanNudgeHologram() const {
 }
 
 bool AABPowerSwitchHologramWallmount::TrySnapToActor(const FHitResult& hitResult) {
-	AActor* hitActor = hitResult.GetActor();
+	TObjectPtr<AActor> hitActor = hitResult.GetActor();
 	mSnappedBuilding = NULL;
 
 	// special explict placements
@@ -85,7 +85,7 @@ bool AABPowerSwitchHologramWallmount::TrySnapToActor(const FHitResult& hitResult
 void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitResult& hitResult) {
 	FRotator outRotation = FRotator::ZeroRotator;
 	FVector outLocation = FVector::Zero();
-	AActor* hitActor = hitResult.GetActor();
+	TObjectPtr<AActor> hitActor = hitResult.GetActor();
 
 	FTransform actorToWorld = hitActor->GetTransform();
 	FTransform worldToActor = actorToWorld.Inverse();
@@ -94,7 +94,7 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	float wallRot = allowSpinOnWall ? GetScrollRotateValue() : 0.0f;
 
 	// beams
-	AFGBuildableBeam* hitBeam = Cast<AFGBuildableBeam>(hitActor);
+	TObjectPtr<AFGBuildableBeam> hitBeam = Cast<AFGBuildableBeam>(hitActor);
 	if (hitBeam != NULL) {
 		// incase somone bevels the edges of the beam or something, snap to cardinal directions and local units
 		float facing = FMath::Abs(localHitNormal.Y) > FMath::Abs(localHitNormal.Z) ? (localHitNormal.Y > 0.0f ? 90.0f: 270.0f) : (localHitNormal.Z > 0.0f ? 0.0f: 180.0f);
@@ -112,7 +112,7 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	}
 
 	// pillars
-	AFGBuildablePillar* hitPillar = Cast<AFGBuildablePillar>(hitActor);
+	TObjectPtr<AFGBuildablePillar> hitPillar = Cast<AFGBuildablePillar>(hitActor);
 	if (hitPillar != NULL) {
 		// pillars are guarenteed to be some rect with even dimensions
 		outLocation = localHitPosition.GridSnap(mGridSnapSize);
@@ -127,7 +127,7 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	}
 
 	// wall placement
-	AFGBuildableWall* hitWall = Cast<AFGBuildableWall>(hitActor);
+	TObjectPtr<AFGBuildableWall> hitWall = Cast<AFGBuildableWall>(hitActor);
 	if (hitWall != NULL) {
 		SnapToWall(hitWall, hitResult.ImpactNormal, hitResult.ImpactPoint, EAxis::Z, FVector::Zero(), wallRot, outLocation, outRotation);
 		SetActorLocationAndRotation(
@@ -139,13 +139,13 @@ void AABPowerSwitchHologramWallmount::SetHologramLocationAndRotation(const FHitR
 	}
 
 	// foundations enable side snapping and handle underside snapping, also follow slopes
-	AFGBuildableFoundation* hitFoundation = Cast<AFGBuildableFoundation>(hitActor);
+	TObjectPtr<AFGBuildableFoundation> hitFoundation = Cast<AFGBuildableFoundation>(hitActor);
 	if (hitFoundation != NULL) {
 		FVector absLocalNormal = localHitNormal.GetAbs();
 		bool nonCardinal = absLocalNormal.X < 0.998f && absLocalNormal.Y < 0.998f && absLocalNormal.Z < 0.998f;
 		bool onTheUnderside = localHitNormal.Z < 0.0f;
 
-		AFGBuildableRamp* hitRamp = Cast<AFGBuildableRamp>(hitActor);
+		TObjectPtr<AFGBuildableRamp> hitRamp = Cast<AFGBuildableRamp>(hitActor);
 		if (hitRamp != NULL && nonCardinal) {
 			// ramp's ramped surface enjoy special behaviours not of the utility
 			float slopeHigh = hitRamp->mElevation * 0.5f;

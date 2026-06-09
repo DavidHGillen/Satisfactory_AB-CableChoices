@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Hologram/FGBuildableHologram.h"
+#include "Buildables/FGBuildableRailroadTrack.h"
 #include "ABTrackPowersnapHologram.generated.h"
 
 /**
@@ -24,6 +25,6 @@ public:
 public:
 	bool bFlipped;
 	bool bTrySpacing;
-	AFGBuildableRailroadTrack* mSnappedTrack;
+	TObjectPtr<AFGBuildableRailroadTrack> mSnappedTrack;
 	FTransform lastTransform;
 };

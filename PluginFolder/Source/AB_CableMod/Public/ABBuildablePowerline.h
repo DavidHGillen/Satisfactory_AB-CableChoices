@@ -19,10 +19,10 @@ struct AB_CABLEMOD_API FABPowerlineCustomization {
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, Category = "ABPowerline")
-	UMaterialInterface* material;
+	TObjectPtr<UMaterialInterface> material;
 
 	UPROPERTY(EditAnywhere, Category = "ABPowerline")
-	UNiagaraSystem* particleFX;
+	TObjectPtr<UNiagaraSystem> particleFX;
 };
 
 /**
@@ -45,7 +45,7 @@ protected:
 	
 	// many powerlines will need this so just manage it as a base property, beware perf tho
 	UPROPERTY(SaveGame, EditInstanceOnly, Category = "ABPowerline")
-	UNiagaraSystem* mParticleFX;
+	TObjectPtr<UNiagaraSystem> mParticleFX;
 
 	// rather than modify the skin system, just let it do nothing and use this to do our thing
 	UPROPERTY(EditDefaultsOnly, Category = "ABPowerline")
