@@ -76,8 +76,20 @@ public:
 
 protected:
 	// base classes
-	void ApplyMeshPrimitiveData(const FFactoryCustomizationData& customizationData) {
-		Super::ApplyMeshPrimitiveData(customizationData);
+	void ApplyCustomizationData_Native(const FFactoryCustomizationData& customizationData) {
+		Super::ApplyCustomizationData_Native(customizationData);
+		BPUpdateVisualData();
+	};
+	void SetCustomizationData_Implementation(const FFactoryCustomizationData& customizationData) {
+		Super::SetCustomizationData_Implementation(customizationData);
+		BPUpdateVisualData();
+	};
+	void SetCustomizationData_Native(const FFactoryCustomizationData& customizationData, bool skipCombine = false) {
+		Super::SetCustomizationData_Native(customizationData, skipCombine);
+		BPUpdateVisualData();
+	};
+	void ApplyCustomizationData_Implementation(const FFactoryCustomizationData& customizationData) {
+		Super::ApplyCustomizationData_Implementation(customizationData);
 		BPUpdateVisualData();
 	};
 
