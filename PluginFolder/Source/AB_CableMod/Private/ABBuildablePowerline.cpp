@@ -53,7 +53,22 @@ void AABBuildablePowerline::AddNewSwatchGroupDefault(AFGGameState* gameState, TS
 	groupData.Swatch = swatch;
 	groupData.SwatchGroup = group;
 
-	gameState->mSwatchGroupDatum.Add(groupData);
+	// cleanup in isle 3
+	bool bFound = false;
+	for (int i = 0, l = gameState->mSwatchGroupDatum.Num(); i < l; i++) {
+		if (gameState->mSwatchGroupDatum[i].SwatchGroup == groupData.SwatchGroup) {
+			if (bFound) {
+				gameState->mSwatchGroupDatum.RemoveAt(i);
+				l--; i--;
+			}
+			bFound = true;
+		}
+	}
+
+	if (!bFound) {
+		gameState->mSwatchGroupDatum.Add(groupData);
+	}
+
 	gameState->SetDefaultSwatchForBuildableGroup(group, swatch);
 }
 
