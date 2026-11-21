@@ -2,6 +2,7 @@
 
 #include "ABBuildablePowerline.h"
 #include "Kismet/GameplayStatics.h"
+#include "UObject/UnrealType.h"
 
 // Satic init ////
 
@@ -49,26 +50,42 @@ void AABBuildablePowerline::UpdateIfYours(const FWireInstance* changedWire) {
 void AABBuildablePowerline::AddNewSwatchGroupDefault(AFGGameState* gameState, TSubclassOf<UFGSwatchGroup> group,
 	TSubclassOf<UFGFactoryCustomizationDescriptor_Swatch> swatch
 ) {
-	FSwatchGroupData groupData;
-	groupData.Swatch = swatch;
-	groupData.SwatchGroup = group;
+	if (gameState == nullptr || group == nullptr || swatch == nullptr) { return; }
 
-	// cleanup in isle 3
-	bool bFound = false;
-	for (int i = 0, l = gameState->mSwatchGroupDatum.Num(); i < l; i++) {
-		if (gameState->mSwatchGroupDatum[i].SwatchGroup == groupData.SwatchGroup) {
-			if (bFound) {
-				gameState->mSwatchGroupDatum.RemoveAt(i);
-				l--; i--;
+	// In game build 520140, this array moved relative to the SDK headers (runtime offset
+	// 1824, compiled offset 1728). Resolve the array and its fields from the running game
+	// so direct member access cannot read the wrong memory during save loading.
+	FArrayProperty* groups = FindFProperty<FArrayProperty>(gameState->GetClass(), TEXT("mSwatchGroupDatum"));
+	FStructProperty* element = groups ? CastField<FStructProperty>(groups->Inner) : nullptr;
+	FObjectPropertyBase* groupField = element ? CastField<FObjectPropertyBase>(element->Struct->FindPropertyByName(TEXT("SwatchGroup"))) : nullptr;
+	FObjectPropertyBase* swatchField = element ? CastField<FObjectPropertyBase>(element->Struct->FindPropertyByName(TEXT("Swatch"))) : nullptr;
+	if (groupField == nullptr || swatchField == nullptr) {
+		UE_LOG(LogTemp, Error, TEXT("Cannot register cable swatch group: runtime swatch properties unavailable"));
+		return;
+	}
+
+	FScriptArrayHelper_InContainer entries(groups, gameState);
+	// The default-swatch setter does not create a group entry. Holograms look up that
+	// entry when built, so keep one existing entry or add it if this group is missing.
+	// Remove extra entries left by earlier registrations of the same group.
+	bool found = false;
+	for (int32 i = 0; i < entries.Num(); ++i) {
+		if (groupField->GetObjectPropertyValue_InContainer(entries.GetRawPtr(i)) == group.Get()) {
+			if (found) {
+				entries.RemoveValues(i);
+				--i;
+			} else {
+				found = true;
 			}
-			bFound = true;
 		}
 	}
-
-	if (!bFound) {
-		gameState->mSwatchGroupDatum.Add(groupData);
+	if (!found) {
+		const int32 index = entries.AddValue();
+		uint8* row = entries.GetRawPtr(index);
+		groupField->SetObjectPropertyValue_InContainer(row, group.Get());
+		swatchField->SetObjectPropertyValue_InContainer(row, swatch.Get());
 	}
-
+	// With the group present, let the game update its default swatch for that group.
 	gameState->SetDefaultSwatchForBuildableGroup(group, swatch);
 }
 
